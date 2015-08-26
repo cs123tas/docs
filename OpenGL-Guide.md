@@ -27,6 +27,9 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
     - [Create A Shader Object](#create-a-shader-object)
     - [Add Code To Shader Object](#add-code-to-shader-object)
     - [Compile The Shader Object](#compile-the-shader-object)
+- [Miscellaneous Important Calls](#miscellaneous-important-calls)
+  -[Depth Culling](#depth-culling)
+  -[Enabling/Disabling built-in OpenGL Features](#enabling-disabling-built-in-opengl-features)
 
 ## Vertex Buffer Objects (VBOs)
 
@@ -396,3 +399,40 @@ This command creates a program object.
 ```C++
 GLuint programID: glCreateProgram();
 ```
+
+## Miscellaneous Important Calls
+
+Whew, that was a lot. All done, right? Not quite! There are still a few important calls that don’t fit exactly into any of the above categories, but still need to be explained. 
+
+### Depth Culling
+	
+When rendering pixels, its a waste render pixels that are occluded, or behind other pixels. OpenGL gives you a method to not render occluded pixels, and it uses something called the depth buffer. Basically, the depth buffer records the closest pixel at each location. When a new pixel is spit out by the fragment shader, OpenGL will check to see if it’s closer than the current best. If it is, it renders it. If it’s not, it tosses it. Also, it’s simple to turn on!
+
+**Example Code**
+```C++
+glDepthMask(GL_TRUE);
+glEnable(GL_DEPTH_TEST);
+glClear(GL_DEPTH_BUFFER_BIT);
+```
+
+So what’s going on here. The first call turns on writing to the depth buffer. The second call turns on using the depth buffer to perform depth culling, and the final call clears the default value of the depth buffer, which is stupidly intitally set to 0, which is the closest value, meaning no future values will ever be closer. If you forget to clear the buffer, the screen will be all black, and you will be confused, and it will make you unhappy.
+
+### Enabling/Disabling built-in OpenGL Features
+
+OpenGL has a lot of built in features that can speed-up or visually improve your work. We already saw GL_DEPTH_TEST, which helps limits the number of occluded pixels rendered, or GL_MULTISAMPLE, which uses multiple fragment samples to generate a pixel color. See here for a full list and their descriptions. 
+
+**Function Definition**
+```C++
+glEnable(GLenum cap);
+glDisable(GLenum cap);
+```
+
+*Parameters*
+```GLenum cap```: symbolic constant representing an OpenGL capability.
+
+**Example Code**
+```C++
+glEnable(GL_MULTISAMPLE);
+glDisable(GL_MULTISAMPLE);
+```
+
