@@ -26,7 +26,7 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
   - [How To Get A Shader Into Your Code](#how-to-get-a-shader-into-your-code)
     - [Create A Shader Object](#create-a-shader-object)
     - [Add Code To Shader Object](#add-code-to-shader-object)
-    - [Compile Shader Object](#complie-shader-object)
+    - [Compile Shader Object](#compile-shader-object)
 
 ## Vertex Buffer Objects (VBOs)
 
