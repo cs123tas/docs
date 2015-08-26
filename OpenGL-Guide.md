@@ -19,6 +19,9 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
   - [Using a Vertex Array Object](#using-a-vertex-array-object)
     - [Binding a Vertex Array Object](#binding-a-vertex-array-object)
     - [Enabling Array Access](#enabling-array-access)
+    - [Specifying the structure of a VBO with a VAO](#specifying-the-structure-of-a-VBO-with-a-VAO)
+    - [Unbinding a Vertex Array Object](#unbinding-a-vertex-array-object)
+    - [Deleting a Vertex Array Object](#deleting-a-vertex-array-object)
 
 ## Vertex Buffer Objects (VBOs)
 
@@ -262,11 +265,27 @@ void glEnableVertexAttribArray(GLuint index);
 
 **Example Code**
 ```C++
-// Create a variable to store our VAO ID
-GLuint vaoID;
-// Generate the vertex array object and store the VAO's ID in vaoID
-glGenVertexArrays(1, &vaoID);
-// Bind the VAO
-glBindVertexArray(vaoID);
+glEnableVertexAttribArray(0);
+```
+#### Specifying the structure of the VBO with a VAO:
+
+VBOs have structure. Structure in this case means a structured ordering of data. Are all the positions stored, then all the normals, then all the texture coordinates? Is everything interleaved? To tell the program the answer, we use a VAO. 
+To specify the structure of the VBO, we first must bind the VBO we went to specify to  `GL_ARRAY_BUFFER`. Then we call the following command.
+
+**Function Definition**
+```C++
+void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void *offset);
 ```
 
+*Parameters*
+`GLuint index`: the index of the generic vertex attribute to be modified.
+`GLint size`: the number of components per generic vertex attribute. Must be 1, 2, 3, 4. (also the symbolic constant `GL_BGRA` is accepted)
+`GLenum type`: the data type of each component in the array. In this class we generally use `GL_FLOAT`, but you also could use `GL_BYTE`, `GL_SHORT`, `GL_INT`, or `GL_DOUBLE`. The initial value is `GL_FLOAT`.
+`GLboolean normalized`: whether fixed-point data values should be normalized (`GL_TRUE`) or converted directly as fixed-point values (`GL_FALSE`) when they are accessed.
+`GLsizei stride`: the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in the array. The initial value is 0.
+`const void *pointer`: offset of the first component of the first generic vertex attribute in the array in the data store of the buffer currently bound to the `GL_ARRAY_BUFFER` target. The initial value is 0.
+
+**Example Code** 
+```C++
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+```
