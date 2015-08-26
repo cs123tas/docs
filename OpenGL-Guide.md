@@ -1,6 +1,6 @@
 # The CS123 Guide to OpenGL
 
-OpenGL, the best graphics library this side of the Mississippi (which actually means the whole world, if you’re hip to geometric topology). This guide will guide you through the guiding principles of OpenGl. That’s a lot of guide. It is organized by topic, and in each topic we order each subtopic by a plausible chronology of use. If you can’t find something, use <kbd>Control</kbd>+<kbd>F</kbd> or <kbd>&#8984;</kbd>+<kbd>F</kbd>. If you still can’t find it, contact a TA and tell us what we missed.
+OpenGL, the best graphics library this side of the Mississippi (which actually means the whole world, if you’re hip to geometric topology). This guide will guide you through the guiding principles of OpenGl. That’s a lot of guide. It is organized by topic, and in each topic we order each subtopic by a plausible chronology of use. If you can’t find something, use <kbd>Control</kbd>+<kbd>F</kbd> or <kbd>Command &#8984;</kbd>+<kbd>F</kbd>. If you still can’t find it, contact a TA and tell us what we missed.
 
 ## Table of Contents
 
@@ -286,11 +286,11 @@ void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean norm
 ```
 
 *Parameters*
-`GLuint index`: the index of the generic vertex attribute to be modified.
-`GLint size`: the number of components per generic vertex attribute. Must be 1, 2, 3, 4. (also the symbolic constant `GL_BGRA` is accepted)
-`GLenum type`: the data type of each component in the array. In this class we generally use `GL_FLOAT`, but you also could use `GL_BYTE`, `GL_SHORT`, `GL_INT`, or `GL_DOUBLE`. The initial value is `GL_FLOAT`.
-`GLboolean normalized`: whether fixed-point data values should be normalized (`GL_TRUE`) or converted directly as fixed-point values (`GL_FALSE`) when they are accessed.
-`GLsizei stride`: the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in the array. The initial value is 0.
+`GLuint index`: the index of the generic vertex attribute to be modified.  
+`GLint size`: the number of components per generic vertex attribute. Must be 1, 2, 3, 4. (also the symbolic constant `GL_BGRA` is accepted)  
+`GLenum type`: the data type of each component in the array. In this class we generally use `GL_FLOAT`, but you also could use `GL_BYTE`, `GL_SHORT`, `GL_INT`, or `GL_DOUBLE`. The initial value is `GL_FLOAT`.  
+`GLboolean normalized`: whether fixed-point data values should be normalized (`GL_TRUE`) or converted directly as fixed-point values (`GL_FALSE`) when they are accessed.  
+`GLsizei stride`: the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in the array. The initial value is 0.  
 `const void *pointer`: offset of the first component of the first generic vertex attribute in the array in the data store of the buffer currently bound to the `GL_ARRAY_BUFFER` target. The initial value is 0.
 
 **Example Code** 
@@ -317,14 +317,15 @@ glDeleteVertexArrays(GLsizei n, GLuint *arrays);
 ```
 
 *Parameters*
-```GLsizei n```: number of VAOs to delete
-```GLuint *arrays``` = either the address of an ID of a single VAO to delete or the address of an array of IDs to delete.
+`GLsizei n`: number of VAOs to delete
+`GLuint *arrays`: either the address of an ID of a single VAO to delete or the address of an array of IDs to delete.
 
 **Example Code**
 ```C++
 glDeleteVertexArrays(1, &vaoID);
 glDeleteVertexArrays(3, &vaoIDArray);
 ```
+
 ## Shaders
 
 A Shader is a user-defined program designed to run on some stage of a graphics processor. With OpenGL, shaders are written in GLSL, a C-like language. A shader is a separate file called by our program. All OpenGL programs must have at least 2 shaders: a vertex shader, and a fragment shader. Although these files can have any file extension, we use .vert and .frag in this class to keep things organized.
@@ -353,9 +354,10 @@ This command creates a shader object and returns a GLuint that will be the ID fo
 GLuint shaderID; 
 glCreateShader(GLenum shaderType);
 ```
-*Parameters*
-```GLuint shaderID```: ID of created shader //yes I know this technically isn’t an argument, but it needed to be explained, and this was the most relavent section to explain it in
-```GLenum shaderType```: the type of shader. Must be one of these: ```GL_VERTEX_SHADER```, ```GL_TESS_CONTROL_SHADER```, ```GL_TESS_EVALUATION_SHADER```, ```GL_GEOMETRY_SHADER```, ```GL_FRAGMENT_SHADER```, or ```GL_COMPUTE_SHADER```.
+*Parameters*  
+//yes I know this technically isn’t an argument, but it needed to be explained, and this was the most relavent section to explain it in
+`GLuint shaderID`: ID of created shader 
+`GLenum shaderType`: the type of shader. Must be one of these: `GL_VERTEX_SHADER`, `GL_TESS_CONTROL_SHADER`, `GL_TESS_EVALUATION_SHADER`, `GL_GEOMETRY_SHADER`, `GL_FRAGMENT_SHADER`, or `GL_COMPUTE_SHADER`.
 
 **Example Code**
 ```C++
@@ -372,10 +374,10 @@ void glShaderSource​(GLuint shader, GLsizei count, const GLchar **string, cons
 ```
 
 *Parameters*
-```GLuint shader```: ID of shader object
-```GLsizei count```: the number of individual strings in string
-```const GLchar **string```: array of strings that store the code to add to the shader object
-```const GLint *length```: array of lengths for each string in ```string```
+`GLuint shader`: ID of shader object
+`GLsizei count`: the number of individual strings in string
+`const GLchar **string`: array of strings that store the code to add to the shader object
+`const GLint *length`: array of lengths for each string in `string`
 NOTE: length can be NULL if all the strings have null endings. If length is set to null, the program will try to automatically find the length of the strings by searching for null endings.
 
 **Example Code**
@@ -391,6 +393,7 @@ This command compiles the shader object.
 ```C++
 glCompileShader(shaderID);
 ```
+
 #### Create A Program Object
 
 This command creates a program object.
