@@ -387,7 +387,7 @@ glShaderSource(vertexShader, 1, &source, NULL);
 
 #### Compile the Shader Object
 
-This command compiles the shader object. 
+The `glCompileShader` function compiles the shader object. 
 
 **Example Code**
 ```C++
@@ -396,11 +396,11 @@ glCompileShader(shaderID);
 
 #### Create A Program Object
 
-This command creates a program object.
+The `glCreateProgram` function creates a program object.
 	
 **Example Code**
 ```C++
-GLuint programID: glCreateProgram();
+GLuint programID = glCreateProgram();
 ```
 
 ## Miscellaneous Important Calls
