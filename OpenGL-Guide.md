@@ -290,7 +290,7 @@ void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean norm
 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 ```
 
-#### Unbinding the VAO
+#### Unbinding a VAO
 	
 After using our VAO, we want to unbind it, as a matter of good housekeeping, to prevent accidental uses of our VAO. To do this we bind a vertex array with index 0. 
 
@@ -299,7 +299,7 @@ After using our VAO, we want to unbind it, as a matter of good housekeeping, to 
 glBindVertexArray(0);
 ```
 
-#### Destroying the VAO
+#### Deleteing a VAO
 
 After we are sure we never want to use this VAO again, we need to delete it. The procedure to do this is quite like that for a VBO.
 
