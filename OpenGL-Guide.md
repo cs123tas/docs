@@ -19,7 +19,7 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
   - [Using a Vertex Array Object](#using-a-vertex-array-object)
     - [Binding a Vertex Array Object](#binding-a-vertex-array-object)
     - [Enabling Array Access](#enabling-array-access)
-    - [Specifying the structure of a VBO with a VAO](#specifying-the-structure-of-a-VBO-with-a-VAO)
+    - [Specifying the structure of a VBO with a VAO](#specifying-the-structure-of-a-vbo-with-a-vao)
     - [Unbinding a Vertex Array Object](#unbinding-a-vertex-array-object)
     - [Deleting a Vertex Array Object](#deleting-a-vertex-array-object)
 
