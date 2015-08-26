@@ -22,6 +22,7 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
     - [Specifying the structure of a VBO with a VAO](#specifying-the-structure-of-a-vbo-with-a-vao)
     - [Unbinding a Vertex Array Object](#unbinding-a-vertex-array-object)
     - [Deleting a Vertex Array Object](#deleting-a-vertex-array-object)
+- [Shaders](#shaders)
 
 ## Vertex Buffer Objects (VBOs)
 
@@ -316,4 +317,78 @@ glDeleteVertexArrays(GLsizei n, GLuint *arrays);
 ```C++
 glDeleteVertexArrays(1, &vaoID);
 glDeleteVertexArrays(3, &vaoIDArray);
+```
+## Shaders
+
+A Shader is a user-defined program designed to run on some stage of a graphics processor. With OpenGL, shaders are written in GLSL, a C-like language. A shader is a separate file called by our program. All OpenGL programs must have at least 2 shaders: a vertex shader, and a fragment shader. Although these files can have any file extension, we use .vert and .frag in this class to keep things organized.
+
+### How To Get a Shader Into Your Code
+
+So say you have a neat shader and you want to use it in your project, there are a couple steps you need to go through to get everything set up. Here’s an overview.
+
+1. Create a shader object.
+2. Give that object the code inside your shader file.
+3. Compile that shader object.
+4. Create a program object.
+5. Attach the shader object to the program object.
+6. Link the program object.
+
+That seems like a lot of stuff, but really it’s not that bad, and is a relatively conserved process between different graphics projects. So learn to do it once, be able to do it 100 times.
+
+Now let’s look at each step in detail.
+
+#### Create a Shader Object
+
+This command creates a shader object and returns a GLuint that will be the ID for the created shader.
+
+**Function Definition**
+```C++
+GLuint shaderID; 
+glCreateShader(GLenum shaderType);
+```
+*Parameters*
+```GLuint shaderID```: ID of created shader //yes I know this technically isn’t an argument, but it needed to be explained, and this was the most relavent section to explain it in
+```GLenum shaderType```: the type of shader. Must be one of these: ```GL_VERTEX_SHADER```, ```GL_TESS_CONTROL_SHADER```, ```GL_TESS_EVALUATION_SHADER```, ```GL_GEOMETRY_SHADER```, ```GL_FRAGMENT_SHADER```, or ```GL_COMPUTE_SHADER```.
+
+**Example Code**
+```C++
+GLuint shaderID; 
+glCreateShader(GL_VERTEX_SHADER);
+```
+#### Add Code To Shader Object:
+
+This command will put the GLSL code we wrote for our shader into the shader object. The code we want must be stored in a string array, and preferably null terminated. We recommend using the .c_str() command to make sure the string array is null terminated. 
+
+**Function Definition**
+```C++
+void glShaderSource​(GLuint shader, GLsizei count, const GLchar **string, const GLint *length);
+```
+
+*Parameters*
+```GLuint shader```: ID of shader object
+```GLsizei count```: the number of individual strings in string
+```const GLchar **string```: array of strings that store the code to add to the shader object
+```const GLint *length```: array of lengths for each string in ```string```
+NOTE: length can be NULL if all the strings have null endings. If length is set to null, the program will try to automatically find the length of the strings by searching for null endings.
+
+**Example Code**
+```C++
+glShaderSource(vertexShader, 1, &source, NULL);
+```
+
+#### Compile the Shader Object
+
+This command compiles the shader object. 
+
+**Example Code**
+```C++
+glCompileShader(shaderID);
+```
+#### Create A Program Object
+
+This command creates a program object.
+	
+**Example Code**
+```C++
+GLuint programID: glCreateProgram();
 ```
