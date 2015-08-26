@@ -1,0 +1,255 @@
+# The CS123 Guide to OpenGL
+
+OpenGL, the best graphics library this side of the Mississippi (which actually means the whole world, if you’re hip to geometric topology). This guide will guide you through the guiding principles of OpenGl. That’s a lot of guide. It is organized by topic, and in each topic we order each subtopic by a plausible chronology of use. If you can’t find something, use control-F or command-F. If you still can’t find it, contact a TA and tell us what we missed.
+
+
+## Vertex Buffer Objects (VBOs)
+
+Vertex Buffer Objects (VBOs) are OpenGL’s way of storing geometry data. VBOs are referenced by VBO IDs that can be generated using OpenGL. Every object that you wish to render will eventually have to have its geometry stored in a VBO, so you really should spend some time getting to know these objects well.
+
+### Create a VBO ID
+
+In order to create a VBO, we need a way to store a reference to it. This is done using a VBO ID. All VBO IDs are of type `GLuint`, which is a GL-unsigned-int. Generally we make this GLuint a member variable so we can access it in multiple methods. This ID is the way we reference and access the VBO. Sometimes, this ID id is called the VBO name, but it is still the same GLuint.
+
+To store a VBO ID, we need to create a variable of type `GLuint`
+
+**Example Code**
+```C++
+// Create a variable to store our VBO ID
+GLuint vboID;
+```
+
+
+### Generate a VBO
+
+We have a variable to store the VBO ID, but that variable is currently uninitialized (which is bad). To initialize it, we need to generate a VBO and store that VBO's ID in our variable. The OpenGL function `glGenBuffers` does exactly that for us. This command will generate 1 or more VBOs and store the IDs to access them in `vboID`, which is a variable of type `GLuint` that you should have made previously.
+
+**Function Definition**
+```C++
+void glGenBuffers(GLsizei n, GLuint * buffers);
+```
+*Parameters*  
+`GLSizei n`: The number of vertex buffer objects to generate  
+`GLuint * buffers`: A pointer to the `GLuint` variable in which to store the newly generated VBO's ID (or an array of `GLuint`s if generating multiple VBOs)
+
+**Example Code**
+```C++
+// Create a variable to store our VBO ID
+GLuint vboID;
+// Generate the VBO and store the VBO's ID in vboID
+glGenBuffers(1, &vboID);
+```
+```C++
+// Create an array to hold three VBO IDs
+GLuint[3] vboIDArray;
+// Generate the VBOs and store one ID per position in the array
+glGenBuffers(3, &vboIDArray);
+```
+
+### Storing Data in a VBO
+
+An empty VBO doesn't do us much good, so we need to fill it with data. Storing data in a VBO takes three commands: you have to bind the buffer, buffer the data, and then finally unbind the buffer. We go over each command below.
+
+#### Binding a VBO
+
+In order to use the VBO, we must first bind the vertex buffer object to a *buffer binding target*. You can think of this target as a global variable inside of OpenGL that can hold a reference to a single object. By binding the VBO ID to a target, you are assigning the buffer to that specific target so that subsequent OpenGL function calls will operate on the buffer you want (the one you bound to the target). We can use the general purpose OpenGL buffer binding function to do this.
+
+**Function Definition**
+```C++
+void glBindBuffer(GLenum target, GLuint buffer);
+```
+*Parameters*  
+`GLenum target`: Specifies the buffer binding target to which the buffer object should be bound.  
+`GLuint buffer`: The buffer object that we wish to bind to the specified target. This will usually be your VBO ID.
+
+**Example Code**
+```C++
+// Create a variable to store our VBO ID
+GLuint vboID;
+// Generate the VBO and store the VBO's ID in our variable vboID
+glGenBuffers(1, &vboID);
+// Bind our VBO to the OpenGL Array Buffer
+glBindBuffer(GL_ARRAY_BUFFER, vboID);
+```
+
+#### Buffering Data
+
+Now that OpenGL has our buffer bound, we have to send the data over to the buffer itself. We do this using the general purpose OpenGL buffering function, `glBufferData`.  
+
+**Function Definition**
+```C++
+void glBufferData(GLenum target, GLsizeiptr size, const GLvoid * data, GLenum usage);
+```
+
+*Parameters*  
+`GLenum target`: Specifies the buffer binding target to which the data should be sent.  
+`GLsizeiptr size`: The size in bytes of the data you whish to send to the buffer. Since you specify this, you could send as much or as little data from your source as you want. Be sure that you don't pass in a size greater than the size of your data (or else bad things will happen).  
+`const GLvoid * data`: A pointer to the data you want to send to be stored in the buffer. Notice that it is marked `const` so we know that the data won't be changed.  
+`GLenum usage`: Specifies the expected usage pattern of the data store. Generally should be `GL_STATIC_DRAW`. The STATIC means the data in the buffer will only be altered once, and used many times. The DRAW means the data is used as the source for GL drawing and image specification commands. See [the OpenGL docs here](https://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml) for more info on other cool usage specifications, like `GL_DYNAMIC_DRAW`.  
+
+**Example Code**
+```C++
+// Create some data, which in this case is a set of verticies for a triangle
+float[] vertexData = {1.0, 0.0, 1.0,
+                      0.5, 1.0, 1.0,
+                      0.0, 0.0, 1.0}
+
+// With a buffer already bound to GL_ARRAY_BUFFER, send the data over to the buffer
+// Note that since vertexData is an array, it will be passed as a pointer to glBufferData
+glBufferData(GL_ARRAY_BUFFER, 9*sizeof(float), vertexData, GL_STATIC_DRAW);
+```
+
+#### Unbinding a Buffer
+
+It is considered good practice to leave OpenGL in it's original state when we're done working with it, so when we're done using a buffer we need to unbind it. OpenGL doesn't have an unbind buffer function, so instead we bind the buffer we were just using to `0` to indicate that nothing is bound. To do this, we use the same `glBindBuffer` function as before.
+
+**Example Code**
+```C++
+// Unbind the GL_ARRAY_BUFFER that we were just using
+glBindBuffer(GL_ARRAY_BUFFER, 0);
+```
+
+### Deleting a Vertex Buffer Object
+
+Like everything else in C and C++, you have to delete a buffer object when you are done using it to avoid causing memory leaks. This is easily done using `glDeleteBuffers`, which works just like `glGenBuffers` but in reverse, deleting buffers that were previously created using `glGenBuffers`.
+
+**Function Definition**
+```C++
+void glDeleteBuffers(GLsizei n, const GLuint * buffers);
+```
+*Parameters*  
+`GLSizei n`: The number of vertex buffer objects to delete  
+`GLuint * buffers`: A pointer to the `GLuint` variable that stores the VBO's ID (or an array of `GLuint`s if deleting multiple VBOs)
+
+**Example Code**
+```C++
+// Delete the buffer that has its ID stored in our variable vboID
+glDeleteBuffers(1, &vboID);
+```
+```C++
+// Delete the buffers that have their IDs stored in our array vboIDArray
+glDeleteBuffers(3, &vboIDArray);
+```
+
+### Full Example of Using Vertex Buffer Objects
+
+Putting it all together, this code demonstrates the whole process of creating, using, and deleting a vertex buffer object.
+
+```C++
+// Create a variable to hold our VBO ID
+GLuint vboID;
+
+// Generate a VBO and store the ID in our variable
+glGenBuffers(1, &vboID);
+
+// Bind our VBO to the GL_ARRAY_BUFFER
+glBindBuffer(GL_ARRAY_BUFFER, vboID);
+
+// Send some data over to the GL_ARRAY_BUFFER, which currently has our VBO bound to it
+float[] data = {0.5, 1.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.0} // Made up example data
+glBufferData(GL_ARRAY_BUFFER, 9*sizeof(float), data, GL_STATIC_DRAW);
+
+// Unbind our VBO
+glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+// Delete our VBO since we are done using it
+glDeleteBuffers(1, &vboID);
+```
+
+
+## Vertex Array Objects
+
+A Vertex Array Object (VAO) specifies how the data stored in a VBO is to be read by the vertex shader. Using a VAO is optional but recommended as VAOs greatly simplify your program logic. When you create and bind a VAO, that VAO will remember all of the function calls you make to describe the structure of your data to OpenGL. That way, all you have to do later is rebind the VAO and OpenGL will already know all about your data without you having to tell it twice.
+
+### Create a Vertex Array Object ID
+
+Just like vertex buffer objects, all vertex array objects are referenced by their ID. That ID is just a `GLuint`, again just like VBOs.
+
+**Example Code**
+```C++
+// Create a variable to store our VAO ID
+GLuint vaoID;
+```
+
+### Generate a Vertex Array Object
+
+Again, just like a vertex buffer object, we need to tell OpenGL to generate a vertex array object for us. This is done using `glGenVertexArrays`.
+
+**Function Definition**
+```C++
+void glGenVertexArrays(GLsizei n, GLuint * buffers);
+```
+*Parameters*  
+`GLSizei n`: The number of vertex array objects to generate  
+`GLuint * arrays`: A pointer to the `GLuint` variable in which to store the newly generated VAO's ID (or an array of `GLuint`s if generating multiple VAOs)
+
+**Example Code**
+```C++
+// Create a variable to store our VAO ID
+GLuint vaoID;
+// Generate the vertex array object and store the VAO's ID in vaoID
+glGenVertexArrays(1, &vaoID);
+```
+```C++
+// Create an array to hold three VAO IDs
+GLuint[3] vaoIDArray;
+// Generate the VAOs and store one ID per position in the array
+glGenVertexArrays(3, &vaoIDArray);
+```
+
+
+### Using a Vertex Array Object
+
+To use a vertex array object, you need to first bind the VAO and then make a series of calls that OpenGL will remember and reapply next time you bind the VAO. Finally, when you are done describing your data, you unbind the VAO. This is what makes VAOs useful: you only have to describe your data once while the VAO is bound, and then next time you bind the VAO OpenGL will already know all about your data. First, we list some functions. Then, we will go over them in detail below.
+
+1. `glBindVertexArray(m_vaoID);`
+2. `glEnableVertexAttribArray(index);`
+3. `glBindBuffer(GL_ARRAY_BUFFER, vboID);` Note: This is the same VBO command covered in the VBO section
+4. `glVertexAttribPointer(index, size, type, normalized, stride, (void*) pointer);`
+5. `glBindBuffer(GL_ARRAY_BUFFER, 0);` Note: This is the same VBO command covered in the VBO section
+6. `glBindVertexArray(0);`
+
+
+#### Binding a Vertex Array Object
+
+To use a VAO, you first have to bind it. Note that there isn't a target parameter for VAOs like vertex buffer objects have. Thus you can only have one vertex array object bound at a time. To bind a VAO, we use `glBindVertexArray`.
+
+**Function Definition**
+```C++
+void glBindVertexArray(GLuint id);
+```
+*Parameters*  
+`GLuint id`: The ID of the vertex array object we wish to bind
+
+**Example Code**
+```C++
+// Create a variable to store our VAO ID
+GLuint vaoID;
+// Generate the vertex array object and store the VAO's ID in vaoID
+glGenVertexArrays(1, &vaoID);
+// Bind the VAO
+glBindVertexArray(vaoID);
+```
+
+
+#### Enabling Array Access
+
+Initially array access is denied for all attributes in a newly created VAO. Access to any attributes must be manually enabled. We do this using `glEnableVertexAttribArray`.
+
+**Function Definition**
+```C++
+void glEnableVertexAttribArray(GLuint index);
+```
+*Parameters*  
+`GLuint index`: The index of the generic vertex array attribute to be enabled
+
+**Example Code**
+```C++
+// Create a variable to store our VAO ID
+GLuint vaoID;
+// Generate the vertex array object and store the VAO's ID in vaoID
+glGenVertexArrays(1, &vaoID);
+// Bind the VAO
+glBindVertexArray(vaoID);
+```
+
