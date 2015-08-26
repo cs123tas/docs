@@ -285,7 +285,7 @@ To specify the structure of the VBO, we first must bind the VBO we went to speci
 void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void *offset);
 ```
 
-*Parameters*
+*Parameters*  
 `GLuint index`: the index of the generic vertex attribute to be modified.  
 `GLint size`: the number of components per generic vertex attribute. Must be 1, 2, 3, 4. (also the symbolic constant `GL_BGRA` is accepted)  
 `GLenum type`: the data type of each component in the array. In this class we generally use `GL_FLOAT`, but you also could use `GL_BYTE`, `GL_SHORT`, `GL_INT`, or `GL_DOUBLE`. The initial value is `GL_FLOAT`.  
@@ -355,7 +355,7 @@ GLuint shaderID;
 glCreateShader(GLenum shaderType);
 ```
 *Parameters*  
-//yes I know this technically isn’t an argument, but it needed to be explained, and this was the most relavent section to explain it in
+//yes I know this technically isn’t an argument, but it needed to be explained, and this was the most relavent section to explain it in  
 `GLuint shaderID`: ID of created shader 
 `GLenum shaderType`: the type of shader. Must be one of these: `GL_VERTEX_SHADER`, `GL_TESS_CONTROL_SHADER`, `GL_TESS_EVALUATION_SHADER`, `GL_GEOMETRY_SHADER`, `GL_FRAGMENT_SHADER`, or `GL_COMPUTE_SHADER`.
 
@@ -373,12 +373,12 @@ This command will put the GLSL code we wrote for our shader into the shader obje
 void glShaderSource​(GLuint shader, GLsizei count, const GLchar **string, const GLint *length);
 ```
 
-*Parameters*
-`GLuint shader`: ID of shader object
-`GLsizei count`: the number of individual strings in string
-`const GLchar **string`: array of strings that store the code to add to the shader object
-`const GLint *length`: array of lengths for each string in `string`
-NOTE: length can be NULL if all the strings have null endings. If length is set to null, the program will try to automatically find the length of the strings by searching for null endings.
+*Parameters*  
+`GLuint shader`: ID of shader object  
+`GLsizei count`: the number of individual strings in string  
+`const GLchar **string`: array of strings that store the code to add to the shader object  
+`const GLint *length`: array of lengths for each string in `string`  
+**NOTE**: length can be NULL if all the strings have null endings. If length is set to null, the program will try to automatically find the length of the strings by searching for null endings.
 
 **Example Code**
 ```C++
