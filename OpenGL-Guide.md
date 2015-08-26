@@ -267,7 +267,7 @@ void glEnableVertexAttribArray(GLuint index);
 ```C++
 glEnableVertexAttribArray(0);
 ```
-#### Specifying the structure of the VBO with a VAO:
+#### Specifying the structure of a VBO with a VAO:
 
 VBOs have structure. Structure in this case means a structured ordering of data. Are all the positions stored, then all the normals, then all the texture coordinates? Is everything interleaved? To tell the program the answer, we use a VAO. 
 To specify the structure of the VBO, we first must bind the VBO we went to specify to  `GL_ARRAY_BUFFER`. Then we call the following command.
