@@ -17,7 +17,7 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
   - [Create a Vertex Array Object ID](#create-a-vertex-array-object-id)
   - [Generate a Vertex Array Object](#generate-a-vertex-array-object)
   - [Using a Vertex Array Object](#using-a-vertex-array-object)
-    - [Binding the Vertex Array Object](#binding-the-vertex-array-object)
+    - [Binding a Vertex Array Object](#binding-a-vertex-array-object)
     - [Enabling Array Access](#enabling-array-access)
 
 ## Vertex Buffer Objects (VBOs)
