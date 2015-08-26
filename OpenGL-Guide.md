@@ -2,6 +2,20 @@
 
 OpenGL, the best graphics library this side of the Mississippi (which actually means the whole world, if you’re hip to geometric topology). This guide will guide you through the guiding principles of OpenGl. That’s a lot of guide. It is organized by topic, and in each topic we order each subtopic by a plausible chronology of use. If you can’t find something, use control-F or command-F. If you still can’t find it, contact a TA and tell us what we missed.
 
+## Table of Contents
+
+- [Vertex Buffer Objects (VBOs)](#vertex-buffer-objects-vbos)
+  - [Create a VBO ID](#create-a-vbo-id)
+  - [Generate a VBO](#generate-a-vbo)
+  - [Storing Data in a VBO](#storing-data-in-a-vbo)
+    - [Binding a VBO](#binding-a-vbo)
+    - [Buffering Data](#buffering-data)
+    - [Unbinding a Buffer](#unbinding-a-buffer)
+  - [Deleting a Vertex Buffer Object](#deleting-a-vertex-buffer-object)
+  - [Full Example of Using Vertex Buffer Objects](#full-example-of-using-vertex-buffer-objects)
+- [Vertex Array Objects (VAOs)](#vertex-array-objects-vaos)
+  - [Create a Vertex Array Object ID](#create-a-vertex-array-object-id)
+  - [Generate a Vertex Array Object](#generate-a-vertex-array-object)
 
 ## Vertex Buffer Objects (VBOs)
 
@@ -157,7 +171,7 @@ glDeleteBuffers(1, &vboID);
 ```
 
 
-## Vertex Array Objects
+## Vertex Array Objects (VAOs)
 
 A Vertex Array Object (VAO) specifies how the data stored in a VBO is to be read by the vertex shader. Using a VAO is optional but recommended as VAOs greatly simplify your program logic. When you create and bind a VAO, that VAO will remember all of the function calls you make to describe the structure of your data to OpenGL. That way, all you have to do later is rebind the VAO and OpenGL will already know all about your data without you having to tell it twice.
 
