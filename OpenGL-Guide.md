@@ -29,7 +29,7 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
     - [Compile The Shader Object](#compile-the-shader-object)
 - [Miscellaneous Important Calls](#miscellaneous-important-calls)
   - [Depth Culling](#depth-culling)
-  - [Enabling/Disabling built-in OpenGL Features](#enabling-disabling-built-in-opengl-features)
+  - [Enabling/Disabling built-in OpenGL Features](#enabling/disabling-built-in-opengl-features)
 
 ## Vertex Buffer Objects (VBOs)
 
