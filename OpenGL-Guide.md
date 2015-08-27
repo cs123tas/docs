@@ -7,7 +7,7 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
 - [Vertex Buffer Objects (VBOs)](#vertex-buffer-objects-vbos)
   - [Create a VBO ID](#create-a-vbo-id)
   - [Generate a VBO](#generate-a-vbo)
-  - [Storing Data in a VBO](#storing-data-in-a-vbo)
+  - [Storing Data In a VBO](#storing-data-in-a-vbo)
     - [Binding a VBO](#binding-a-vbo)
     - [Buffering Data](#buffering-data)
     - [Unbinding a Buffer](#unbinding-a-buffer)
@@ -19,7 +19,7 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
   - [Using a Vertex Array Object](#using-a-vertex-array-object)
     - [Binding a Vertex Array Object](#binding-a-vertex-array-object)
     - [Enabling Array Access](#enabling-array-access)
-    - [Specifying the structure of a VBO with a VAO](#specifying-the-structure-of-a-vbo-with-a-vao)
+    - [Specifying the Structure of a VBO With a VAO](#specifying-the-structure-of-a-vbo-with-a-vao)
     - [Unbinding a Vertex Array Object](#unbinding-a-vertex-array-object)
     - [Deleting a Vertex Array Object](#deleting-a-vertex-array-object)
 - [Shaders](#shaders)
@@ -29,7 +29,7 @@ OpenGL, the best graphics library this side of the Mississippi (which actually m
     - [Compile The Shader Object](#compile-the-shader-object)
 - [Miscellaneous Important Calls](#miscellaneous-important-calls)
   - [Depth Culling](#depth-culling)
-  - [Enabling/Disabling built-in OpenGL Features](#enabling/disabling-built-in-opengl-features)
+  - [Enabling and Disabling built-in OpenGL Features](#enabling/disabling-built-in-opengl-features)
 
 ## Vertex Buffer Objects (VBOs)
 
@@ -420,7 +420,7 @@ glClear(GL_DEPTH_BUFFER_BIT);
 
 So what’s going on here. The first call turns on writing to the depth buffer. The second call turns on using the depth buffer to perform depth culling, and the final call clears the default value of the depth buffer, which is stupidly intitally set to 0, which is the closest value, meaning no future values will ever be closer. If you forget to clear the buffer, the screen will be all black, and you will be confused, and it will make you unhappy.
 
-### Enabling/Disabling built-in OpenGL Features
+### Enabling and Disabling built-in OpenGL Features
 
 OpenGL has a lot of built in features that can speed-up or visually improve your work. We already saw GL_DEPTH_TEST, which helps limits the number of occluded pixels rendered, or GL_MULTISAMPLE, which uses multiple fragment samples to generate a pixel color. See here for a full list and their descriptions. 
 
