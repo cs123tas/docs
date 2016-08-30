@@ -1,0 +1,251 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.7in
+\topmargin 0.7in
+\rightmargin 0.7in
+\bottommargin 0.7in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\family sans
+\series bold
+\size huge
+CSCI-1234 Half-Credit Syllabus
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family sans
+\size larger
+Introduction to Computer Graphics, Fall 2016
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+http://cs.brown.edu/courses/cs123
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+cs123tas@cs.brown.edu
+\begin_inset VSpace -0.1in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Welcome
+\size large
+
+\begin_inset VSpace -0.05in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This document provides more detailed information to students who are attempting
+ to earn an additional half-credit while taking CS123.
+ If you are a graduate student and wish to earn grad credit (2000 level
+ credit) you will also need to follow these guidelines.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size large
+\begin_inset VSpace -0.05in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This document assumes you have already read the CS123 Course Missive and
+ CS123 Student Guide.
+ If you haven't go read it right now, I'll wait for you right here.
+\end_layout
+
+\begin_layout Section
+Registration
+\size large
+
+\begin_inset VSpace -0.05in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You must register for CSCI-1230 
+\series bold
+\bar under
+AND
+\series default
+\bar default
+ CSCI-1234 to earn the half-credit or grad credit.
+ If you are uncertain about attempting this we strongly encourage you to
+ register for both anyway.
+ You can always drop the lab course later in the semester if you decide
+ the workload becomes untenable.
+ If you have any questions, feel free to email cs123tas@cs.brown.edu.
+\size large
+
+\begin_inset VSpace -0.1in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Assignment Enhancements
+\size large
+
+\begin_inset VSpace -0.05in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For each of the 6 projects you will be expected to complete additional features
+ in order to pass the lab course.
+ The last two projects (Intersect and Ray) are released simultaneously but
+ your half-credit requirements are only due when you hand in Ray.
+ We've worked hard to ensure that these enhancements are not just more work
+ but that they also will increase your understanding of graphics programming.
+ This does not mean they are easy and/or quick to do.
+ 
+\end_layout
+
+\begin_layout Standard
+In a couple of cases you will be able to use your creativity to implement
+ something of your own choosing.
+ Do not assume what you implement will count towards the half-credit requirement
+! Check with a TA during hours or email them before handing in.
+ As a group they have all implemented the enhancements and should be able
+ to help answer any questions.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size large
+\begin_inset VSpace -0.1in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Allocating your Time
+\size large
+
+\begin_inset VSpace -0.05in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We tell everyone this, but for meeting these requirements you will really
+ need to start each project as soon as it is released.
+ Really.
+ We aren't joking or exagerating in the slightest.
+ If you find the assignments easy we hope you will apply to be a CS123 TA
+ next year!
+\size large
+
+\begin_inset VSpace -0.1in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Further Questions?
+\end_layout
+
+\begin_layout Standard
+As always please email the TA's if you have any questions on half-credit
+ requirements.
+ 
+\end_layout
+
+\end_body
+\end_document
