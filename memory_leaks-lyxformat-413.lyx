@@ -1,9 +1,7 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
 \begin_document
 \begin_header
-\save_transient_properties true
-\origin unavailable
 \textclass article
 \use_default_options true
 \maintain_unincluded_children false
@@ -11,16 +9,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
-\font_sans "default" "default"
-\font_typewriter "default" "default"
-\font_math "auto" "auto"
+\font_roman default
+\font_sans default
+\font_typewriter default
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100 100
-\font_tt_scale 100 100
+\font_sf_scale 100
+\font_tt_scale 100
+
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -31,24 +29,15 @@
 \use_hyperref false
 \papersize default
 \use_geometry true
-\use_package amsmath 1
-\use_package amssymb 1
-\use_package cancel 1
-\use_package esint 1
-\use_package mathdots 1
-\use_package mathtools 1
-\use_package mhchem 1
-\use_package stackrel 1
-\use_package stmaryrd 1
-\use_package undertilde 1
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
 \cite_engine basic
-\cite_engine_type default
-\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
 \use_refstyle 0
 \index Index
 \shortcut idx
@@ -117,10 +106,6 @@ Valgrind Memory Analyzer
 Valgrind is a great tool for automatically detecting memory leaks, and it
  is built in to QtCreator.
  To use it, select Analyze > Valgrind Memory Analyzer.
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -141,11 +126,7 @@ This will run your program, keeping track of the memory that is allocated
  any leaks that occurred.
  In the example below, we never deleted the ConstantBrush, so 32 bytes of
  memory were leaked.
- The message points us to the exact line where this memory was allocated.
-\begin_inset Separator latexpar
-\end_inset
-
-
+ The message points us to the exact line where this memroy was allocated.
 \end_layout
 
 \begin_layout Standard
@@ -162,10 +143,6 @@ This will run your program, keeping track of the memory that is allocated
 \begin_layout Standard
 If no memory was leaked during the execution of your program, you will not
  see any messages displayed in that section, as shown below.
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -195,10 +172,6 @@ MyObject *object = new MyObject();
 
 \begin_layout LyX-Code
 if (myBoolean) {
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
 \begin_deeper
@@ -226,31 +199,173 @@ Preventing Memory Leaks
 \begin_layout Standard
 The rule of thumb for creating objects in C++ is that every new should correspon
 d to exactly one delete.
- You shouldn't need to worry about this if you're using smart pointers!
- Remember, don't allocate dynamic memory to a raw pointer.
+ Certain design patterns make it easier to keep track of this correspondence
+ than others.
+ For example, take a look at the following code, which involves creating
+ an array of integers.
+\end_layout
+
+\begin_layout LyX-Code
+int* makeArray(int size, int value) {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+int *array = new int[size];
+\end_layout
+
+\begin_layout LyX-Code
+for (int i = 0; i < size; i++) {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+array[i] = value;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+return array;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+int main(int argc, char** argv) {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+int *array = makeArray(5, 5);
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+// Do something with the array...
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+return 0;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
 \end_layout
 
 \begin_layout Standard
-Another source of common errors is arrays/vectors.
- As usual, using vectors over arrays whenever possible will solve many of
- your problems.
- You might run into the issue where you access or write to indices past
- the length of the vector.
- If you see unexplained segfaults, check your indices!
-\end_layout
-
-\begin_layout Section
-GPU Memory Leaks
+This program leaks memory because we “new”ed an array in the makeArray function,
+ but never deleted it after we were finished using it.
+ However, it is not obvious just by looking at the main function that the
+ array needs to be deleted, because the “new” operation is hidden inside
+ makeArray.
+ This design pattern is not ideal because it requires callers of makeArray
+ to adhere to a specific protocol in order to use the function properly
+ (i.e.
+ delete the returned array when you're done with it).
 \end_layout
 
 \begin_layout Standard
-Valgrind will only catch CPU memory leaks, but you can leak GPU memory as
- well.
- To avoid this, make sure that each call to a glGen*() function (usually
- in a constructor) is matched with its corresponding glDelete*() function
- (usually in the destructor).
- If you’re using the GL datatype classes you implemented in the labs, you
- probably won’t need to worry about this either.
+Now, take a look at the alternative code below.
+\end_layout
+
+\begin_layout LyX-Code
+void fillInArray(int *array, int size, int value) {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+for (int i = 0; i < size, i++) {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+array[i] = value;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+int main(int argc, char** argv) {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+int *array = new int[5];
+\end_layout
+
+\begin_layout LyX-Code
+fillInArray(array, 5, 5);
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+// Do something with the array...
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+delete[] array;
+\end_layout
+
+\begin_layout LyX-Code
+return 0;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout Standard
+In this example, the fillInArray does not handle the creation of the array,
+ just filling it in with 5's.
+ With this design, it is obvious just by looking at the main function that
+ the array needs to be deleted in the main function.
+ By making sure the “new” and the “delete” are in logically corresponding
+ places, we have avoided the need to know the details of what fillInArray
+ is doing.
+ Each function is responsible for its own memory.
+\end_layout
+
+\begin_layout Standard
+(Another advantage to this design is it makes our helper function have a
+ more explicit and stand-alone purpose.
+ Rather than being a “create AND fill in array” method, it is simply a “fill
+ in array” method.)
+\end_layout
+
+\begin_layout Standard
+Hopefully keeping this design pattern in mind will help you prevent memory
+ leaks in the future!
 \end_layout
 
 \end_body
