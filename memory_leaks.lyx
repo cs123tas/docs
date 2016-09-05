@@ -1,9 +1,7 @@
 #LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+\lyxformat 474
 \begin_document
 \begin_header
-\save_transient_properties true
-\origin unavailable
 \textclass article
 \use_default_options true
 \maintain_unincluded_children false
@@ -11,16 +9,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
-\font_sans "default" "default"
-\font_typewriter "default" "default"
-\font_math "auto" "auto"
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100 100
-\font_tt_scale 100 100
+\font_sf_scale 100
+\font_tt_scale 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -117,11 +115,8 @@ Valgrind Memory Analyzer
 Valgrind is a great tool for automatically detecting memory leaks, and it
  is built in to QtCreator.
  To use it, select Analyze > Valgrind Memory Analyzer.
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
+
 
 \begin_layout Standard
 \align center
@@ -142,11 +137,8 @@ This will run your program, keeping track of the memory that is allocated
  In the example below, we never deleted the ConstantBrush, so 32 bytes of
  memory were leaked.
  The message points us to the exact line where this memory was allocated.
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
+
 
 \begin_layout Standard
 \align center
@@ -162,11 +154,8 @@ This will run your program, keeping track of the memory that is allocated
 \begin_layout Standard
 If no memory was leaked during the execution of your program, you will not
  see any messages displayed in that section, as shown below.
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
+
 
 \begin_layout Standard
 \align center
@@ -195,11 +184,8 @@ MyObject *object = new MyObject();
 
 \begin_layout LyX-Code
 if (myBoolean) {
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
+
 
 \begin_deeper
 \begin_layout LyX-Code
