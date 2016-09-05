@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
 \lyxformat 474
 \begin_document
 \begin_header
@@ -156,7 +156,7 @@ Head TA: Vivian Morgowicz (vmorgowi@cs.brown.edu)
 \begin_layout Itemize
 UTAs: Ben Attal (battal), Luke Priebe (lpriebe), Neel Virdy (nvirdy), Nick
  Mckenna (nmkenna), Ruiqi Mao, (rm28), Sam Gondelman (sgondelman), Vijay
- Narayanan (vn6), Zihao Li (zli27)
+ Narayanan (vn6)
 \end_layout
 
 \begin_layout Itemize
@@ -164,8 +164,7 @@ Lectures: Tuesday/Thursday 10:30-11:50 AM, CIT 368
 \end_layout
 
 \begin_layout Itemize
-Labs: Thursday 8:30-10:30 PM and Friday 4:00-6:00 PM in the SunLab (CIT
- 143)
+Labs: Monday 6:00-8:00 PM and Friday 4:00-6:00 PM in the SunLab (CIT 143)
 \size large
 
 \begin_inset VSpace -0.1in
@@ -384,7 +383,7 @@ Intersect
 \series bold
 Ray 
 \series default
-(Due 11/22, weight 13%)
+(Due 11/18, weight 13%)
 \end_layout
 
 \begin_layout Itemize
@@ -400,7 +399,7 @@ Final
 \series bold
 10 Labs 
 \series default
-(Due day before next lab, total weight 10%)
+(Due Thursday before next lab, total weight 10%)
 \end_layout
 
 \begin_layout Standard
