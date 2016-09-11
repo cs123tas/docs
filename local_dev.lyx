@@ -242,19 +242,11 @@ Follow the directions in the installer.
 
 \begin_layout Enumerate
 Copy your files from the department machine using WinSCP.
- More info
+ More info 
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
-target "http://cs.brown.edu/about/system/net_remote/ssh/ssh.cs.brown.edu/windows/"
-
-\end_inset
-
- and 
-\begin_inset CommandInset href
-LatexCommand href
-name "here"
-target "http://cs.brown.edu/courses/cs017/content/remote/remote-windows.pdf"
+target "https://cs.brown.edu/about/system/connecting/ssh/windows/"
 
 \end_inset
 
