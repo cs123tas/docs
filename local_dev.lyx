@@ -1,7 +1,9 @@
 #LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass article
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -69,15 +71,15 @@
 \begin_body
 
 \begin_layout Title
-Developing Your CS123 Project Locally
+Developing Your CS1230 Project Locally
 \end_layout
 
 \begin_layout Author
-a brief guide
+A Brief Guide
 \end_layout
 
 \begin_layout Date
-Fall 2016
+Fall 2017
 \end_layout
 
 \begin_layout Standard
@@ -87,10 +89,9 @@ While we've taken some steps to make the project stencil as cross-platform
  run smoothly.
  If the following steps do not work for you, feel free to ask the TAs for
  additional help.
- For Windows: see Vivian (vmorgowi), Sam (sgondelm), or Ben (battal).
- For Mac: see Luke (lpriebe), Neel (nvirdy), Nick, (nmckenna), or Vijay
- (vn6).
- For Linux: see Ruiqi (rm28).
+ For Windows: see Jordan (jaw5), Loudon (lcohen2), or Shannon (srw).
+ For Mac: see Katya (kschwieg), Emma (ecatlin), or Mason (mbartle).
+ For Linux: see Sacha (aservans), Liam (lcallana), or Ruiqi (rm28).
 \begin_inset Newline newline
 \end_inset
 
@@ -122,15 +123,15 @@ target "http://www.qt.io/download-open-source/#section-2"
 
 \begin_layout Enumerate
 Follow the directions in the installer.
- On the Select Components, make sure the box next to Tools is checked.
+ At the Select Components step, make sure the box next to Tools is checked.
 \end_layout
 
 \begin_layout Enumerate
 Copy your files from the department machine using the terminal command:
  
 \family typewriter
-scp -r <your username>@ssh.cs.brown.edu:path/to/your/project/dir desired/destinatio
-n/on/your/computer>
+scp -r <your username>@ssh.cs.brown.edu:<path/to/your/project/dir> <desired/destina
+tion/on/your/computer>
 \end_layout
 
 \begin_layout Enumerate
@@ -191,8 +192,11 @@ target "http://www.qt.io/download-open-source/#section-2"
 with MinGW
 \series default
 .
-\end_layout
+\begin_inset Separator latexpar
+\end_inset
 
+
+\end_layout
 
 \begin_deeper
 \begin_layout Enumerate
@@ -208,10 +212,17 @@ Show All Downloads
 
  page and scroll for a bit until you get to the one labeled 
 \series bold
-Qt 5.5.0 for Windows 32-bit (MinGW 4.9.2, OpenGL, 959 MB)
+Qt 5.6.2 for Windows 32-bit (MinGW 4.9.2, 1.0 GB)
 \series default
 .
- 
+ (You can find other MinGW installers in the archives here: 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://download.qt.io/archive/qt/"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -262,8 +273,11 @@ Now you should be good to go!
 
 \begin_layout Enumerate
 If it still doesn't work:
-\end_layout
+\begin_inset Separator latexpar
+\end_inset
 
+
+\end_layout
 
 \begin_deeper
 \begin_layout Enumerate

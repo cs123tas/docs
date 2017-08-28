@@ -1,2 +1,2 @@
-# CS123-Guides
-A collection of guides and help docs for Brown University's CS123
+# CS1230-Guides
+A collection of guides and help docs for Brown University's CS1230

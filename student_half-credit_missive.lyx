@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass article
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -87,7 +89,7 @@ CSCI-1234 Half-Credit Syllabus
 
 \family sans
 \size larger
-Introduction to Computer Graphics, Fall 2016
+Introduction to Computer Graphics, Fall 2017
 \end_layout
 
 \begin_layout Standard
@@ -101,7 +103,7 @@ http://cs.brown.edu/courses/cs123
 \align center
 
 \size large
-cs123tas@cs.brown.edu
+cs1230tas@lists.brown.edu
 \begin_inset VSpace -0.1in
 \end_inset
 
@@ -120,7 +122,7 @@ Welcome
 
 \begin_layout Standard
 This document provides more detailed information to students who are attempting
- to earn an additional half-credit while taking CS123.
+ to earn an additional half-credit while taking CS1230.
  If you are a graduate student and wish to earn grad credit (2000 level
  credit) you will also need to follow these guidelines.
  
@@ -136,8 +138,8 @@ This document provides more detailed information to students who are attempting
 \end_layout
 
 \begin_layout Standard
-This document assumes you have already read the CS123 Course Missive and
- CS123 Student Guide.
+This document assumes you have already read the CS1230 Course Missive and
+ CS1230 Student Guide.
  If you haven't go read it right now, I'll wait for you right here.
 \end_layout
 
@@ -163,7 +165,7 @@ AND
  register for both anyway.
  You can always drop the lab course later in the semester if you decide
  the workload becomes untenable.
- If you have any questions, feel free to email cs123tas@cs.brown.edu.
+ If you have any questions, feel free to email cs1230tas@lists.brown.edu.
 \size large
 
 \begin_inset VSpace -0.1in
@@ -227,8 +229,8 @@ We tell everyone this, but for meeting these requirements you will really
  need to start each project as soon as it is released.
  Really.
  We aren't joking or exagerating in the slightest.
- If you find the assignments easy we hope you will apply to be a CS123 TA
- next year!
+ If you find the assignments easy we hope you will apply to be a CS1230
+ TA next year!
 \size large
 
 \begin_inset VSpace -0.1in

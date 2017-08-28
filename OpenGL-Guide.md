@@ -1,6 +1,6 @@
-# The CS123 Guide to OpenGL
+# The CS1230 Guide to OpenGL
 
-OpenGL, the best graphics library this side of the Mississippi (which actually means the whole world, if you’re hip to geometric topology). This guide will guide you through the guiding principles of OpenGl. That’s a lot of guide. It is organized by topic, and in each topic we order each subtopic by a plausible chronology of use. If you can’t find something, use <kbd>Control</kbd>+<kbd>F</kbd> or <kbd>Command &#8984;</kbd>+<kbd>F</kbd>. If you still can’t find it, contact a TA and tell us what we missed.
+OpenGL, the best graphics library this side of the Mississippi (which actually means the whole world, if you’re hip to geometric topology). This guide will guide you through the guiding principles of OpenGL. That’s a lot of guide. It is organized by topic, and in each topic we order each subtopic by a plausible chronology of use. If you can’t find something, use <kbd>Control</kbd>+<kbd>F</kbd> or <kbd>Command &#8984;</kbd>+<kbd>F</kbd>. If you still can’t find it, contact a TA and tell us what we missed.
 
 ## Table of Contents
 
