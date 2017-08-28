@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass article
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -542,17 +544,6 @@ algo
 \begin_inset Newline newline
 \end_inset
 
-Write or type your responses to the questions neatly on a separate paper
- from the algorithm handout.
- Hand in the completed handout to the CS123 hand-in bin located on the second
- floor of the CIT (near CIT 271).
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
 Algorithm answers should be clear and succinct.
  Don't just start writing.
  Think first, and then write up the clearest answer you can.
@@ -579,8 +570,8 @@ y while it’s still fresh in your mind.
 \begin_inset Newline newline
 \end_inset
 
-Take it seriously! Expect to spend between 20 minutes and 2 hours on each
- algorithm worksheet.
+Take it seriously! Expect to spend between 1 to 2 hours on each algorithm
+ worksheet.
  Late algorithm worksheets aren’t accepted, so be sure to turn them in on
  time.
 \end_layout
@@ -718,7 +709,7 @@ This set of assignments probably looks like a burden, but in fact, if approached
  By the time you take CS123 you are expected to be a competent programmer,
  with good design and debugging habits, and able to turn assignments in
  on time.
- Good time management will make this course much more enjoyable.
+ Good time management will make this course much more enjoyable!
 \end_layout
 
 \begin_layout Subsection
@@ -1069,7 +1060,7 @@ http://www.cs.brown.edu/courses/cs123.
 You are responsible for checking the web site frequently, as we will be
  updating it with important information as the semester progresses.
  Most updates to the website will be accompanied by an announcement to the
- course mailing list.
+ course mailing list and Piazza.
 \end_layout
 
 \begin_layout Section
