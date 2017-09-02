@@ -111,14 +111,15 @@ Mac OS X
 \end_layout
 
 \begin_layout Enumerate
-Visit 
+Download Qt 5.7 at the following link (newer Mac versions of Qt don't work
+ well with our stencil): 
 \begin_inset CommandInset href
 LatexCommand href
-target "http://www.qt.io/download-open-source/#section-2"
+target "https://download.qt.io/archive/qt/5.7/5.7.1/qt-opensource-mac-x64-clang-5.7.1.dmg"
 
 \end_inset
 
-, and download the most recent version of Qt (at least 5.2).
+ (1.2 GB).
 \end_layout
 
 \begin_layout Enumerate
