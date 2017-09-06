@@ -86,7 +86,7 @@ CS1230 Student Guide
 \align center
 
 \size large
-Introduction to Computer Graphics, Fall 2016
+Introduction to Computer Graphics, Fall 2017
 \end_layout
 
 \begin_layout Section
@@ -212,7 +212,7 @@ and will be held the Friday after the first day of class (Friday, 9/7) at
 \end_inset
 
 If you feel that a particular help session would be useful to clarify a
- topic, you may contact the Head TA (at cs1230htas@cs.brown.edu) to discuss
+ topic, you may contact the Head TA (at cs1230htas@lists.brown.edu) to discuss
  your proposal.
 \end_layout
 
@@ -532,7 +532,7 @@ algo
 
 ) assignment to get you started thinking about how to approach the assignment
  mathematically and algorithmically.
- This hand-in will contribute about 10% of a project’s grade.
+ These hand-ins will contribute 10% of the final grade.
  There is also an algorithm assignment for the Camtrans lab.
  See the assignment handouts for more details and exceptions.
  Algorithm worksheets are returned the same day as the deadline so you can
@@ -1020,10 +1020,11 @@ Sending mail to the TAs
 
 \begin_layout Standard
 If there is a problem with an assignment that affects the entire class (such
- as a bug in the support code), you may e-mail the TAs at cs1230tas@cs.brown.edu.
+ as a bug in the support code), you may e-mail the TAs at cs1230tas@lists.brown.ed
+u.
  TAs will respond to course-related e-mail during their office hours.
  For administrative questions or if there is a problem with a TA, you can
- e-mail the head TA at cs1230headtas@cs.brown.edu.
+ e-mail the head TA at cs1230htas@lists.brown.edu.
 \begin_inset Newline newline
 \end_inset
 
@@ -1041,8 +1042,8 @@ Course webpage
 \end_layout
 
 \begin_layout Standard
-The cs1230 web page, which you are responsible for checking and reading daily,
- is located at 
+The CS1230 web page, which you are responsible for checking and reading
+ daily, is located at 
 \begin_inset Newline newline
 \end_inset
 
