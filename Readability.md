@@ -12,7 +12,7 @@ Follow these guidelines, and you'll have a **lovelier** relationship with your c
 ## Naming
 **Name your variables appropriately.** `Humans` are not `Computers`. `TAs` are a subclass of `Humans`. And so are `You`. Use good naming practices
 
-### BAD
+### :(
 ```cpp
 float q(a, b, c) {
   float t = b * b - sqrtf(4 * a * c);
@@ -22,7 +22,7 @@ float q(a, b, c) {
 }
 ```
 
-### GOOD
+### :)
 ```cpp
 float quadraticFormula(a, b, c) {
   float top = b * b - sqrtf(4 * a * c);
@@ -45,7 +45,7 @@ float quadraticFormula(a, b, c) {
 
 **USE COMMON SENSE!!!**
 
-### BAD
+### :(
 ```cpp
 int getFibonacciAt(int index) {
 if (index == 0) return 0;
@@ -70,9 +70,9 @@ num2 = prevNum3;
 num3;
 }
 ```
-(This is *slightly* exaggerated)
+(*slightly* exaggerated)
 
-### GOOD
+### :)
 ```cpp
 int getFibonacciAt(int index) {
   if (index == 0) return 0;
@@ -100,7 +100,7 @@ int getFibonacciAt(int index) {
 
 **Comments are good.** Comments make your code readable. Comments make your code maintainable. Use comments.
 
-### BAD
+### :(
 ```cpp
 int led(std::string word1, std::string word2) {
   int len1 = word1.size();
@@ -128,7 +128,7 @@ int led(std::string word1, std::string word2) {
 }
 ```
 
-### GOOD
+### :)
 ```cpp
 /*
  * Levenshtein edit distance. Calculates the minimum number of changes (removing
@@ -179,13 +179,13 @@ int led(std::string word1, std::string word2) {
 
 Unfortunately, not everyone codes on an ultrawide monitor *(they are the future, I swear)*! Try to keep your lines **to a reasonable length!**
 
-### BAD
+### :(
 ```cpp
 int addFiveNumbers(int num1, int num2, int num3, int num4, int num5) { return (num1 + num2 + num3 + num4 + num5); }
 ```
 (*Why?*)
 
-### GOOD
+### :)
 ```cpp
 int addFiveNumbers(int num1, int num2, int num3, int num4, int num5) {
   return (num1 + num2 + num3 + num4 + num5);
