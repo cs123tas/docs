@@ -21,7 +21,6 @@ float q(a, b, c) {
   return r;
 }
 ```
-<img src="http://i.imgur.com/EFXCBNJ.gif" width="200">
 
 ### GOOD
 ```cpp
@@ -128,7 +127,6 @@ int led(std::string word1, std::string word2) {
   );
 }
 ```
-<img src="http://i.imgur.com/EgIZHSC.png" width="200">
 
 ### GOOD
 ```cpp
