@@ -79,7 +79,7 @@ A Brief Guide
 \end_layout
 
 \begin_layout Date
-Fall 2017
+Fall 2018
 \end_layout
 
 \begin_layout Standard
@@ -89,9 +89,10 @@ While we've taken some steps to make the project stencil as cross-platform
  run smoothly.
  If the following steps do not work for you, feel free to ask the TAs for
  additional help.
- For Windows: see Jordan (jaw5), Loudon (lcohen2), or Shannon (srw).
- For Mac: see Katya (kschwieg), Emma (ecatlin), or Mason (mbartle).
- For Linux: see Sacha (aservans), Liam (lcallana), or Ruiqi (rm28).
+ For Windows: see Loudon (lcohen2) or Nina (npolshak).
+ For Mac: see Ellen (efu2), Montana (mfowler), Cecilia (cberriz), Ashley
+ (akim52), or Lauren (lho1).
+ For Linux: see Ruiqi (rm28) or Jon (jvexler).
 \begin_inset Newline newline
 \end_inset
 
@@ -188,11 +189,12 @@ target "http://www.qt.io/download-open-source/#section-2"
 
 \end_inset
 
-, and download the most recent version of Qt (at least 5.2) 
+, and download at least version 5.7.1 of Qt 
 \series bold
 with MinGW
 \series default
-.
+ (dept.
+ machine version).
 \begin_inset Separator latexpar
 \end_inset
 
@@ -213,7 +215,7 @@ Show All Downloads
 
  page and scroll for a bit until you get to the one labeled 
 \series bold
-Qt 5.6.2 for Windows 32-bit (MinGW 4.9.2, 1.0 GB)
+Qt 5.7.1 for Windows 32-bit (MinGW 5.3.0)
 \series default
 .
  (You can find other MinGW installers in the archives here: 
