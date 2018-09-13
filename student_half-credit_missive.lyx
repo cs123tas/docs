@@ -123,6 +123,13 @@ Welcome
 \begin_layout Standard
 This document provides more detailed information to students who are attempting
  to earn an additional half-credit while taking CS1230.
+ CS1234 is 
+\series bold
+\bar under
+NOT
+\series default
+\bar default
+ a separate course and cannot be taken alone.
  If you are a graduate student and wish to earn 2000 level grad credit you
  will also need to follow these guidelines.
  
@@ -138,9 +145,8 @@ This document provides more detailed information to students who are attempting
 \end_layout
 
 \begin_layout Standard
-This document assumes you have already read the CS1230 Course Missive and
+This document assumes you have already read the CS1230 Course Syllabus and
  CS1230 Student Guide.
- If you haven't go read it right now, I'll wait for you right here.
 \end_layout
 
 \begin_layout Section
@@ -160,7 +166,8 @@ You must register for CSCI-1230
 AND
 \series default
 \bar default
- CSCI-1234 to earn the half-credit or grad credit.
+ CSCI-1234 to earn the half-credit or grad credit (graduate students may
+ sign-up with the HTA as to not incurr additional fees).
  If you are uncertain about attempting this we strongly encourage you to
  register for both anyway.
  You can always drop the lab course later in the semester if you decide
@@ -227,7 +234,6 @@ Allocating your Time
 \begin_layout Standard
 We tell everyone this, but for meeting these requirements you will really
  need to start each project as soon as it is released.
- Really.
  We aren't joking or exagerating in the slightest.
  If you find the assignments easy we hope you will apply to be a CS1230
  TA next year!
