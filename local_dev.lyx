@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,6 +21,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -49,6 +51,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -57,7 +60,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -79,7 +85,7 @@ A Brief Guide
 \end_layout
 
 \begin_layout Date
-Fall 2018
+Fall 2019
 \end_layout
 
 \begin_layout Standard
@@ -89,10 +95,7 @@ While we've taken some steps to make the project stencil as cross-platform
  run smoothly.
  If the following steps do not work for you, feel free to ask the TAs for
  additional help.
- For Windows: see Loudon (lcohen2) or Nina (npolshak).
- For Mac: see Ellen (efu2), Montana (mfowler), Cecilia (cberriz), Ashley
- (akim52), or Lauren (lho1).
- For Linux: see Ruiqi (rm28) or Ben (battal).
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -117,6 +120,7 @@ Download Qt 5.7 at the following link (newer Mac versions of Qt don't work
 \begin_inset CommandInset href
 LatexCommand href
 target "https://download.qt.io/archive/qt/5.7/5.7.1/qt-opensource-mac-x64-clang-5.7.1.dmg"
+literal "false"
 
 \end_inset
 
@@ -186,6 +190,7 @@ Visit
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.qt.io/download-open-source/#section-2"
+literal "false"
 
 \end_inset
 
@@ -222,6 +227,7 @@ Qt 5.7.1 for Windows 32-bit (MinGW 5.3.0)
 \begin_inset CommandInset href
 LatexCommand href
 target "http://download.qt.io/archive/qt/"
+literal "false"
 
 \end_inset
 
@@ -261,6 +267,7 @@ Copy your files from the department machine using WinSCP.
 LatexCommand href
 name "here"
 target "https://cs.brown.edu/about/system/connecting/ssh/windows/"
+literal "false"
 
 \end_inset
 
@@ -303,6 +310,7 @@ If your computer is over 4 years old: you may have issues with using OpenGL
 LatexCommand href
 name "here"
 target "https://www.opengl.org/wiki/Get_Context_Info"
+literal "false"
 
 \end_inset
 
