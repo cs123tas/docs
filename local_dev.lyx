@@ -189,18 +189,27 @@ Windows
 Visit 
 \begin_inset CommandInset href
 LatexCommand href
-target "http://www.qt.io/download-open-source/#section-2"
+target "http://www.qt.io/download"
 literal "false"
 
 \end_inset
 
-, and download at least version 5.7.1 of Qt 
-\series bold
-with MinGW
-\series default
- (dept.
- machine version).
-\begin_inset Separator latexpar
+.
+ Click the 
+\begin_inset Quotes eld
+\end_inset
+
+Go to open source
+\begin_inset Quotes erd
+\end_inset
+
+.
+ On the page you are redirected to, click 
+\begin_inset Quotes eld
+\end_inset
+
+Download
+\begin_inset Quotes erd
 \end_inset
 
 
@@ -208,22 +217,36 @@ with MinGW
 
 \begin_deeper
 \begin_layout Enumerate
-Note that if you take the first / recommended download for Windows, you
- will likely get the wrong compiler! To get the download link you want,
- make sure you're on the 
-\begin_inset Quotes eld
-\end_inset
+You should now have the installer downloaded onto your machine.
+ Open up the installer and run it.
+\end_layout
 
-Show All Downloads
-\begin_inset Quotes erd
-\end_inset
-
- page and scroll for a bit until you get to the one labeled 
+\begin_layout Enumerate
+You will get many different download options.
+ Note that not all of them work correctly.
+ The version you need is at least: 
 \series bold
 Qt 5.7.1 for Windows 32-bit (MinGW 5.3.0)
 \series default
 .
- (You can find other MinGW installers in the archives here: 
+\end_layout
+
+\begin_layout Enumerate
+You can also try googling 
+\begin_inset Quotes eld
+\end_inset
+
+Qt creator 5.7.1.
+\begin_inset Quotes erd
+\end_inset
+
+ One of the first few results will take you to a pagee where you can download
+ 
+\series bold
+qt-opensource-windows-x86-mingw530-5.7.1.exe
+\series default
+.
+ 
 \begin_inset CommandInset href
 LatexCommand href
 target "http://download.qt.io/archive/qt/"
@@ -323,5 +346,15 @@ literal "false"
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+Note/Disclaimer: Qt on Windows is quite finnicky.
+ If you do develop locally, make sure to start early in case you run into
+ Qt problems.
+ It is perfectly normal/doable to develop on department machines where Qt
+ proveably works.
+ While working locally is convenient, loosing time on assignments to Qt
+ setup issues is not.
+\end_layout
+
 \end_body
 \end_document
