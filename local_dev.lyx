@@ -176,6 +176,13 @@ Add Kit
 , and select the kit you just made.
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Note: In order to download gcc, first download XCode and manually enable
+ gcc: https://www.cyberciti.biz/faq/howto-apple-mac-os-x-install-gcc-compiler/
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Clean and Rebuild your project.
  Now you should be good to go! 
@@ -345,9 +352,22 @@ literal "false"
  file (the .frag and .vert files) from #version 400 to #version 330.
 \end_layout
 
+\begin_layout Enumerate
+If the complier returns an error saying it does not recognize the 
+\begin_inset Quotes eld
+\end_inset
+
+-no-pie
+\begin_inset Quotes erd
+\end_inset
+
+ tag: Go to the .pro file in your project and comment out or delete: QMAKE_LFLAGS
+ += -no-pie
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
-Note/Disclaimer: Qt on Windows is quite finnicky.
+Note/Disclaimer: Qt on Windows is quite finicky.
  If you do develop locally, make sure to start early in case you run into
  Qt problems.
  It is perfectly normal/doable to develop on department machines where Qt
