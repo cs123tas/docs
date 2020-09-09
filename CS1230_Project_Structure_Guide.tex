@@ -1,0 +1,119 @@
+\documentclass[landscape,twocolumn,letterpaper]{article}
+\title{CS1230 Project Structure Guide}
+\author{Staff}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{pdfpages}
+\usepackage{mdframed}
+\usepackage{graphicx}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+This document describes the parts of the CS1230 stencil that are relevant to each assignment.
+
+\section{Files Relevant to Every Assignment}
+
+The file \texttt{main.cpp} in the root of the CS1230 stencil is  the entry point of the program. \textbf{You will never need to modify \texttt{main.cpp}}.\\
+
+\noindent
+Navigate to the ``Projects" panel of Qt Creator, and scroll down to the ``Forms" section. Under the \texttt{ui} directory, you will find \texttt{mainwindow.ui}. This is an \texttt{xml} file used by Qt Creator that defines the panels, sliders, labels, and buttons that make up the CS1230 stencil's user interface. If you click on \texttt{ui/mainwindow.ui} in the ``Projects" panel, you will be taken to Qt Creator's ``Design" view, which allows you to modify the user interface defined by this file, while using a fancy graphical interface! \textbf{You will not need to modify \texttt{ui/mainwindow.ui} in any way for any assignment in this course}. However, you will likely want to create your own user interface for your final project. Feel free to use \texttt{ui/mainwindow.ui} as a guide when you create your own user interface! Click the ``Edit" button on the leftmost panel of your Qt Creator window to exit the ``Design" view.\\
+
+\noindent
+After compiling the project for the first time, you may have noticed that a file called \texttt{ui\_mainwindow.h} was generated and placed in the root directory of the project. This file essentially takes the design of the user interface defined in \texttt{ui/mainwindow.ui} and translates it into C++ code. \textbf{There is no need to ever modify \texttt{ui\_mainwindow.h} because it is overwritten every time \texttt{ui/mainwindow.ui} is modified}.\\
+
+\noindent
+Next, take a look at \texttt{ui/mainwindow.h} and \texttt{ui/mainwindow.cpp}. These files take the user interface defined by \texttt{ui/mainwindow.ui} and specify the functionality of each panel, button, and slider in the interface. Most of the methods here are callback functions (called ``slots" in Qt-speak) that say ``when this specific button is pushed, this is what should happen". You may look at these methods and wonder what UI element (i.e. button, slider) each of these methods corresponds to. These UI element-to-function connections are actually defined in \texttt{ui/mainwindow.ui} and then translated into C++ code in
+\texttt{ui\_mainwindow.h}. It is also possible to define such connections outside of \texttt{ui\_mainwindow.h} and \texttt{ui/mainwindow.h}. \textbf{You will have to modify \texttt{ui/mainwindow.cpp} in the Intersect assignment}. \\
+
+\noindent
+Look over \texttt{ui/Settings.h} and \texttt{ui/Settings.cpp}. The \texttt{Settings} struct contains the state of the user interface. The \texttt{Settings} struct stores information such as whether a feature is turned on or off, the values of parameters set by sliders and text boxes, and what type of filter or brush is currently selected. There is one \emph{global} instance of the \texttt{Settings} struct, which is called \texttt{settings}. This global variable is initialized by the \texttt{MainWindow} class and is accessible to any file that \texttt{\#include}s the file \texttt{ui/Settings.h}. \textbf{You will be using the global \texttt{settings} variable in all of the assignments to access the state of the user interface}. It’s not necessary to query the sliders for their values, because the values will be passed to the static \texttt{settings} object every time they are changed.\\
+
+\noindent
+Finally, the code in \texttt{ui/Databinding.h} and \texttt{ui/Databinding.cpp} helps connect visual interface elements like sliders or text boxes to the values stored in the global \texttt{settings} struct. \textbf{You will never have to modify \texttt{ui/Databinding.h} or \texttt{ui/Databinding.cpp}}
+
+\section{Brush}
+
+First, let's look at the \texttt{ui} directory. As described above, the global \texttt{settings} object is relevant here, and you will want to  \texttt{\#include} the file \texttt{ui/Settings.h} anywhere you need to access the state of the user interface. For example, you will get the value specified by the ``Radius" slider from \texttt{settings.brushRadius}.\\
+
+\noindent
+Next, let's look at the \texttt{Canvas2D} class. \textbf{You will have to modify this class as part of the Brush assignment}. This class has methods that allow you to interact with the 2D panel of the user interface. \textbf{This class extends the \texttt{SupportCanvas2D} class, which you will never need to modify}. You will need to fill in the TODOs relevant to the Brush assignment in the \texttt{Canvas2D} class.\\
+
+\noindent
+Finally, look at the classes in the \texttt{brush} directory. You will need to fill in all the TODOs in these classes.\\
+
+\noindent
+Note that the \texttt{RGBA} struct in the \texttt{lib} directory will be useful for this project. \\
+
+\noindent
+\textbf{For more information about the \texttt{Settings} struct and \texttt{Canvas2D} class, refer to the Brush assignment handout}. \\
+
+\section{Shapes}
+
+First, it would be good to take a quick look at \texttt{scenegraph/Scene.cpp} and \texttt{scenegraph/Scene.h}, the base class for \texttt{OpenGLScene} (which is also in the same directory). Generally, you do not need to modify the \texttt{OpenGLScene} class, but you should be aware that it's the base class for \texttt{ShapesScene}, which is where you will render your shapes. \textbf{Specifically, you will need to edit the constructor and the \texttt{renderGeometry} method in \texttt{ShapesScene.cpp}}. \\
+
+\noindent
+For this project you will have to copy your \texttt{VBO} and \texttt{VAO} files from Lab 1 into the \texttt{gl/datatype} folder. In addition, a good starting point for your shapes is the \texttt{OpenGLShape} class from Lab 2. We do not give you starter files for this project, so feel free to create a separate directory for holding your Shapes files. \\
+
+\noindent
+The camera with which you view your shapes is the \texttt{OrbitingCamera} in the \texttt{camera} directory. You do not need to modify this file, but once you complete the camtrans lab, you will understand all of the code in it! \\
+
+\noindent
+You are also relying on code in the \texttt{shaders} directory to view your shapes in this project. The code that displays the wireframe is the shader in the \texttt{shaders/wireframe} directory. The shaders in the \texttt{shaders/normals} directory display the normal vectors. The actual shape is displayed using the shader defined by \texttt{shaders/shader.vert} and \texttt{shaders/shader.frag} You do not have to modify these shaders at all.\\
+
+\section{Filter}
+
+\noindent
+Back to \texttt{Canvas2D}! In this project, you will fill in the TODOs in the \texttt{Canvas2D} that are relevant to the filter assignment. You will also need to create a new \texttt{filter} directory in your CS1230 project, where you can place all of your filter-specific code. You will use the \texttt{RGBA} struct in the \texttt{lib} directory here. You may also find it useful to copy over code from the filter lab to this new \texttt{filter} directory. \\
+
+\section{Camtrans}
+
+For the Camtrans lab, you will be working primarily in \texttt{camera/CamtransCamera.cpp}. You do not need to modify the \texttt{OrbitingCamera} or \texttt{QuaternionCamera}.
+
+\section{Sceneview}
+
+For Sceneview, you will be primarily working in the \texttt{scenegraph} directory. First, take a look at \texttt{scenegraph/Scene.h} and \texttt{scenegraph/Scene.cpp}. This is the base class for all your scenes, and because Ray and Intersect will be reusing some Sceneview code, you should add modifications to the base class \texttt{Scene}. Additionally, you will probably need to use code from your Shapes project in \texttt{scenegraph/SceneviewScene.cpp}. Also, you should examine \texttt{scenegraph/SceneviewScene.h} to get an idea of the general structure of the class and potentially edit it if you want to add \texttt{\#include}s, new member variables, or methods. \\
+
+\noindent
+You will depend on code in the  \texttt{CS123ISceneParser},
+\texttt{CS123XmlSceneParser}, and \texttt{ResourceLoader} classes in the \texttt{lib} directory for this project, but you do not need to modify anything there. You will also depend on \texttt{lib/CS123SceneData.h}, but you do not need to modify that file.
+
+\section{Intersect and Ray}
+
+You will need to modify \texttt{ui/mainwindow.cpp} in the Intersect assignment. Look for the TODO in that file. \\
+
+\noindent
+In these assignments, you will fill in the TODOs in the \texttt{Canvas2D} that are relevant to the Intersect and Ray assignments.\\
+
+\noindent
+You will be working in \texttt{scenegraph/RayScene.h} and \texttt{scenegraph/RayScene.cpp} to implement your raytracer. You will want to create a separate \texttt{ray} directory that contains your raytracer code. You will use the \texttt{RGBA} struct in the \texttt{lib} directory for this project.
+
+\section{The gl Directory}
+
+In the \texttt{gl} directory, you will find the \texttt{GLDebug} class. This class is one of your tools for debugging shaders and OpenGL calls. Refer to the debugging lab for more information.\\
+
+\noindent
+The \texttt{gl/datatype} directory contains classes relevant to OpenGL. You may notice that there are lots of TODOs in these files! You will fill in these TODOs during the labs. However, the labs are separate Qt projects (that contain identical \texttt{VBO}, \texttt{VAO}, and \texttt{FBO} classes), so you will need to copy your work from the labs into the files in \texttt{gl/datatype}.\\
+
+\noindent
+The \texttt{gl/shaders} directory contains classes for interfacing with shaders. You will not have to edit these files. \\
+
+\noindent
+The \texttt{gl/textures} directory contains classes that are relevant to rendering textures in OpenGL. As with the \texttt{gl/datatype} directory, there are lots of TODOs in these files. You will fill in these TODOs during the labs, and you will need to copy your work from the labs into the files in \texttt{gl/textures}.\\
+
+\noindent
+Finally, in \texttt{gl/util}, there is a class \texttt{FullScreenQuad}, which allows you to easily render a full-screen quad. This can be helpful when implementing certain algorithms.
+
+\section{The glew Directory}
+
+To quote the documentation,  GLEW provides efficient run-time mechanisms for determining which OpenGL extensions are supported on the target platform.
+
+\section{The resources.qrc File}
+
+The \texttt{resources.qrc} in the root of CS1230 project defines aliases for files (such as shaders) that can be loaded into the program at runtime using Qt methods. \textbf{You do not need to ever modify the \texttt{resources.qrc} file}.
+
+\end{document}
