@@ -12,7 +12,7 @@ Links to different subsections go here
 * Professor: Daniel Ritchie (dritchi1)
 * Head TAs: Alex Mina (jmina), Caleb Trotz (ctrotz)
 * UTAs: Aalia Habib (ahabib3), Aparna Natarajan (anatara7), Adam Pikielny (apikieln), Alana White (apikieln), Breese Sherman (bsherma3), Junewoo Park (jpark49), Yuna Hiraide (yhiraide)
-* Lectures: Tues & Thurs 10:30am -- 11:50am, location TBD
+* Lectures: Tues & Thurs 10:30am -- 11:50am, location TBD. Lectures will be recorded and promptly available online for students who have chosen remote asynchronous participation this semester.
 * Course website: https://csci1230.graphics
 * TA mailing list: cs1230tas@cs.brown.edu
 * Ed discussion board: (link forthcoming)
