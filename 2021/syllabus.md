@@ -79,3 +79,19 @@ The course website has a wealth of information that will be useful to you throug
 with OpenGL: https://csci1230.graphics/docs.shtml
 * TA hours schedule and contact information: https://csci1230.graphics/staff.shtml
 
+### Collaboration Policy ###
+
+CSCI 1230 has a strictly enforced [collaboration policy](https://github.com/cs123tas/docs/blob/master/2021/2021%20Collaboration%20Policy.pdf) in line with [Brown's Academic Code](https://www.brown.edu/academics/college/degree/sites/brown.edu.academics.college.degree/files/uploads/Academic-Code.pdf) which emphasizes that all written work must be the student's own except for certain limited forms of collaboration that are explicitly permitted. Our collaboration policy in particular prohibits collaboration on the design and implementation of programs.
+
+### Half-Credit Course ###
+
+Students can also register for CSCI 1234 and complete specific additional assignments for each project to earn an extra half-credit. This course can be used to get grad credit, and it can also count as a capstone course. See the Half-Credit Missive section of this document for more information.
+
+### Late Policy ###
+A late algo or lab checkoff will receive **no credit**. Each day a project is turned in late will be penalized 10% of the possible total points. (If you are 25 hours late in handing in that’s a 20% even though you hand in during the first hour of that ‘extra day’).
+
+Every student has five late passes that can each be used to waive a day that a project was turned in late (and the opportunity to earn an extra late pass by filling out the mid-semester and final survey). A maximum of 3 late days can be applied per project (except for Ray and the Final project). These late passes will automatically be applied optimally (to maximize your grade) at the end of the semester. The Filter project is due on the Wednesday before Thanksgiving, and you may use a *single* late day to extend this due-date to Sunday of Thanksgiving break. You may not use any more late days on Filter. You may **not** use **any** late days at all on the Final project.
+
+Late days are expected to cover clustering of due dates and job interviews. For sickness and other issues of wellbeing, please obtain a note from health services or a dean and communicate with Daniel; the TAs will not be involved in handling these.
+
+Lastly, all labs (11 out of 12) and projects must be handed in with at least minimal functionality by the end of the semester in order to receive your course grade (these handins are **not** exceptions to late penalties). As projects build upon each other, it is important to start early and quickly recover from late handins.
