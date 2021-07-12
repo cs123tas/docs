@@ -116,3 +116,125 @@ We tell everyone this, but for meeting these requirements, you will really need 
 ### Further Questions? ###
 
 As always please, email the TAs if you have any questions on half credit requirements.
+
+
+## Student Guide ##
+
+This section provides more in-depth information on the contents of the course and our expectations for the work that students will produce. The Course Missive section above covers the most critical info, but if you've made up your mind that you want to take CSCI 1230 (and we hope you have!), then read on for more details.
+
+### Lectures ###
+
+A strong correlation has been shown between those who do well in CSCI 1230 and those who come to class. Lectures are enriched by class discussion, live demos and other content beyond the slides themselves. We strongly encourage class attendance.
+
+We don’t have nearly enough lecture time to teach everything we wish we could. The lecture topics have been carefully selected by Daniel and the TAs, taking into account the feedback we receive from former CSCI 1230 students. If you feel like you aren’t getting enough out of the lectures, we encourage you to talk to Daniel or the TAs rather than abandoning them altogether. We are constantly revising CSCI 1230, and we take all feedback under serious consideration during our weekly staff meetings.
+
+Sick? Please do not come to lecture or use public computer labs if you have a communicable illness (like the flu). Ask a friend to fill you in on details from class, and review the lecture slides online. We would like to keep everyone in good health.
+
+### Help Sessions ###
+
+There will be several CS1230 help sessions throughout the year. There are two on C++, another on linear algebra, and a third on the shader programming language GLSL. Dates and times will be on the course calendar. If you feel that a particular help session would be useful to clarify a topic, you may contact the Head TA (at cs1230headtas@lists.brown.edu) to discuss your proposal.
+
+### Programming ###
+
+Because graphics work can be computationally intensive, CSCI 1230 is one of the few remaining courses at Brown to use C++, and the only remaining course to teach it. In computer graphics, the performance implications of managed language features such as garbage collection and memory bounds-checking can be unacceptably high. We promote object oriented coding practices to ensure maintainability and extensibility as your graphics system grows. One of the key techniques you’ll take away from CSCI 1230 is the ability to carefully balance raw performance with excellent code maintainability and style.
+
+#### Toolkit ####
+
+Creating GUIs in C++ is often a hassle. We use Qt to achieve cross-platform UI functionality.
+Because Qt depends on special preprocessors and compilers, we recommend that you use Qt Creator to author your C++ code. Qt Creator features automatic code completion, integrated debugging, and automatic Makefile management. Both Qt and Qt Creator are free (under the LGPL license) and cross-platform.
+
+**Where is Qt Creator installed?**
+
+For your convenience, Qt Creator is installed in several locations throughout the CIT.
+* All department Linux machines
+* All department Windows machines
+* All CIS cluster Windows machines on the second floor of the CIT
+
+You may also install the Qt SDK on your personal computer to work from home. Regardless of your choice of development platform, you must ensure that your code compiles and runs properly on the Linux machines in the Sun Lab.
+
+#### Software Engineering ####
+
+We expect that you have all had a thorough grounding in the principles of good software design by now. Most of the assignments are relatively small, and shouldn't require hours of design work. We care mostly about the functionality, stability, and speed of your implementation; however, we will also grade partially on code quality. Good engineering practices early on will greatly help you on future assignments.
+
+Basic engineering principles by which you should abide:
+* Avoid repeated code by thinking about good class design in advance.
+* Don't do anything grossly inefficient. For example, factor repeated computation out of loops.
+* Always remember to free your memory.
+
+#### Don't know C++? ####
+
+Students are able to take the course without knowing C++. However, these students will need to spend extra time at the beginning of the course learning C++. The Intro to C++, Intermediate C++, and Advanced C++ help session slides are available on the CSCI 1230 documents page. These help sessions will be run by the TAs at the start of the semester. See section 3 above. TAs are also ready and willing to help students with C++ questions at office hours. Aside from the help sessions and TA help, the course has no special provisions for students learning C++. Programs will be due at the same time for everyone and will be graded on the same scale. 
+
+### Assignments ###
+
+#### Brush ####
+The first assignment is designed to get your feet wet in the world of graphics programming. In this assignment, you will be implementing various different airbrushes, similar to ones found in many commercial painting programs such as Adobe Photoshop. This assignment should give you a good introduction to the kind of C++ programming you will be doing in this course, as well as gently familiarize you with Qt user interfaces.
+
+#### Shapes ####
+This assignment covers one of the earliest steps in the 3D rendering pipeline: object tessellation. For this assignment you will be constructing simple 3D objects (e.g., spheres and cylinders) out of triangles and then displaying them on the screen. All you need to do for this assignment is compute the necessary triangles; our stencil code handles the task of drawing them for you.
+
+#### Intersect ###
+In this assignment, you will begin to explore an algorithm for drawing (or 'rendering') the shapes you tessellated in the Shapes assignment. Specifically, you will compute intersections between these objects and rays (of light). You will then use this code to create somewhat photorealistic images of scenes.
+
+#### Ray ####
+Ray tracing is a method for rendering realistic pictures of geometric objects. It uses available information about lighting and optical effects like light reflection and refraction. It may sound complicated, but it is a relatively simple technique, and the cool pictures you get are well worth it! You will essentially be taking your code from Intersect, adding in the ability to illuminate the objects, and applying textures from 2D images.
+
+#### Sceneview ###
+In this assignment, you will dive into real-time graphics programming with OpenGL and create an interactive viewer for the 3D scenes you rendered in the Intersect and Ray assignments. This assignment builds upon the code from Shapes, Intersect, Ray, and from the Camtrans lab.
+
+#### Filter #####
+Ever wonder how programs like Photoshop generate all those cool special effects? This assignment represents a subset of the functionality that photo editing programs have. It is designed to teach you the basics of image processing and anti-aliasing. You will implement various image manipulation operations like edge detection, blurring, and image scaling.
+
+#### Final Project ####
+Lastly, you will be creating a final project. The final project can be anything you want that includes one or more of the concepts we covered during the semester, plus a technique you research on your own. Examples include a short game, a cool OpenGL shader program, a demo scene, an implementation of an advanced rendering system, or some combination of the above! Note you're not restricted to these ideas alone. We’ll cover the final project in greater detail in late November.
+
+#### Labs ####
+In addition to homework assignments, a series of labs will provide hands-on experience with various graphics programming topics and tools. The concepts you learn in lab will prove quite useful for implementing your final project (see section above).
+
+### Algos ###
+
+#### Algorithm worksheets ####
+
+Each programming assignment will be accompanied by a written algorithm (“algo”) assignment to get you started thinking about how to approach the assignment mathematically and algorithmically. These hand-ins will contribute 10% of the final grade. There is also an algorithm assignment for the Camtrans lab. See the assignment handouts for more details and exceptions. Algorithm worksheets are returned the same day as the deadline so you can begin coding with confidence right away!
+
+Algorithm answers should be clear and succinct. Don't just start writing. Think first, and then write up the clearest answer you can. If we ask you to describe a section of the project’s algorithm, you should probably go with a description, or pseudo code, rather than actual C++. That said, some incredibly simple parts, such as loops, may be easier to read in actual code.
+
+#### Tips for Algorithm worksheets ####
+
+When you think you’re done with the algorithm worksheet, begin coding immediately while it’s still fresh in your mind. Don’t wait for the solutions to begin coding. The solutions to the algorithm worksheets are designed to help you to debug your program, not to help you write the code for the first time.
+
+Take it seriously! Expect to spend between 1 to 2 hours on each algorithm worksheet. Late algorithm worksheets aren’t accepted, so be sure to turn them in on time.
+
+#### Optimization ####
+
+While we don’t expect you to go overboard with optimization, we do expect your programs to perform well. Be sure to factor repeated computation out of loops, but don’t feel compelled to write assembly code or special SSE instructions.
+
+**Memory Management**: Rather than repeatedly allocating bits of memory, allocate a large chunk all at once. Use smart pointers and STL or Qt data structures that automatically manage your memory when approrpiate.
+
+**Orders of Magnitude**: Be aware of the differences (especially with regard to O(n) performance and memory overhead) between different data structures. We’ll dock points for big memory leaks and things you obviously should have factored out of your loops.
+
+**Accuracy**: Above all, don’t sacrifice accuracy for performance! You will not lose points for an efficient, yet accurate, program. If you ever have a question about optimization, ask a TA on hours.
+
+#### Workload ####
+
+This set of assignments probably looks like a burden, but in fact, if approached sensibly (i.e., working steadily), you will have sufficient time for each and every one. The normal load is about 15 hours per week. By the time you take CSCI 1230 you are expected to be a competent programmer, with good design and debugging habits, and able to turn assignments in on time. Good time management will make this course much more enjoyable!
+
+### Grading ###
+
+Your final grade will be determined based on the programming assignments, algorithm hand-ins, and labs.
+
+You must complete all the assignments (including 11 out of 12 labs) to pass the course. As in all other computer science courses at Brown, you must hand in a working solution for all programming assignments in order to be eligible for a passing grade. Please note the adjective working: if you receive a grade of NC (no credit) on any of the assignments (before late penalties are deducted), you will be expected to revise your program and hand in an acceptable version if you want to pass the course. Also note that the reverse implication is not intended: handing in all assignments does not guarantee that you will pass the course; your accumulated points will determine that.
+
+Daniel doesn't use a curve, and would be delighted to hand out As to the entire class. Indeed, the majority of students traditionally have worked hard and gotten As. In borderline cases (e.g. 89-91), Daniel will take attendance and class participation into account, as well as your perceived effort and dedication. We all love to both give and receive good grades, but do understand that merely working hard doesn’t guarantee you an A. Your grade will reflect primarily upon the quality, correctness, and timeliness of your hand-ins.
+
+#### Extra Credit ####
+
+There is ample room for bells, whistles, and other credit-garnering efforts on the part of ambitious programmers. You are invited to get creative, as long as it does not make you late. Rewarding bells and whistles with extra credit is left to the discretion of the TAs, so we strongly encourage you to discuss your creative plans with a TA before you forge ahead to make sure that they are considered appropriate for credit. Also, keep in mind that bells and whistles should only be done after the standard assignment is fully working since they won't count in lieu of missing or buggy features! CSCI 1230 offers many opportunities for extra credit: if you finish a program a little early, seek appropriate inspiration and add something fancy.
+
+#### Regrade Requests ####
+
+Sometimes you may feel that you have been graded unfairly. If you ever feel this way, please talk to the TA who graded your assignment by visiting them during office hours. If you are not satisfied with the TA’s explanation, talk to the Head TA. If there is still a problem, Daniel is the final word in grading and will be happy to hear what you have to say.
+
+If you decide to challenge a grade, you must do so within two weeks of its receipt. In the past, students have tried to get points back on all of their assignments in the last week of classes. Our first priority is fairness, both to us and to you! You may ask questions about your grades at any time. You can’t change the contents of your hand-in after your grade is returned. If you discover that you handed in the wrong work after you get your grade back, or if you fix your program after getting its grade back, we are unable to take that “external” content into account for grading purposes.
+
+
