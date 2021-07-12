@@ -47,7 +47,7 @@ The full list of CSCI 1230 topics can be found on the "class" page of the websit
 
 Over 13 weeks, students will spend 3 hours per week in class (39 hours total), and approximately 2 hours per week in labs (20 hours total). Homeworks, which consists of 1-2 week projects and the accompanying algorithm assignments, usually take 15-20 hours per week, though they can also require somewhat more or less time depending on how much extra credit a student chooses to implement. In any case, students will spend a minimum of 8.5 hours per week and 120 hours total on homework by the end of the semester.
 
-### Assignment Structure ###
+### Grading ###
 
 Your CSCI 1230 grade consists of 1 tiny written homework, 7 rigorously graded projects, 12 labs that are given completion grades (one of the three final labs is optional), and a final project that is graded according to your presentation to the class during finals period, together with a small "citizenship/participation" score. There are no exams or quizzes, and final grades are not curved; if the work meets specification, it deserves an A, and that is the most common grade. HW0 (which is about the collaboration policy) is critical: you must do it correctly or fail the course.
 * **HW0** (Out 9/9) ***(must be done correctly to pass course)***
@@ -85,7 +85,7 @@ CSCI 1230 has a strictly enforced [collaboration policy](https://github.com/cs12
 
 ### Half-Credit Course ###
 
-Students can also register for CSCI 1234 and complete specific additional assignments for each project to earn an extra half-credit. This course can be used to get grad credit, and it can also count as a capstone course. See the Half-Credit Missive section of this document for more information.
+Students can also register for CSCI 1234 and complete specific additional assignments for each project to earn an extra half-credit. This course can be used to get grad credit, and it can also count as a capstone course. See the [Half-Credit Missive](#half-credit-missive) section of this document for more information.
 
 ### Late Policy ###
 A late algo or lab checkoff will receive **no credit**. Each day a project is turned in late will be penalized 10% of the possible total points. (If you are 25 hours late in handing in that’s a 20% even though you hand in during the first hour of that ‘extra day’).
