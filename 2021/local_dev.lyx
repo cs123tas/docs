@@ -1,0 +1,380 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Developing Your CSCI 1230 Project Locally
+\end_layout
+
+\begin_layout Author
+A Brief Guide
+\end_layout
+
+\begin_layout Date
+Fall 2021
+\end_layout
+
+\begin_layout Standard
+\noindent
+While we've taken some steps to make the project stencil as cross-platform
+ compatible as possible, follow the following instructions to make everything
+ run smoothly.
+ If the following steps do not work for you, feel free to ask the TAs for
+ additional help.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Remember to test all your projects on department machines after development,
+ as we will grade only on those machines.
+ Please also note that these steps may not be sufficient to run all lab
+ code locally.
+ Enjoy!
+\end_layout
+
+\begin_layout Section
+Mac OS X
+\end_layout
+
+\begin_layout Enumerate
+Download Qt 5.7 at the following link (newer Mac versions of Qt don't work
+ well with our stencil): 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://download.qt.io/archive/qt/5.7/5.7.1/qt-opensource-mac-x64-clang-5.7.1.dmg"
+literal "false"
+
+\end_inset
+
+ (1.2 GB).
+\end_layout
+
+\begin_layout Enumerate
+Follow the directions in the installer.
+ At the Select Components step, make sure the box next to Tools is checked.
+\end_layout
+
+\begin_layout Enumerate
+Copy your files from the department machine using the terminal command:
+ 
+\family typewriter
+scp -r <your username>@ssh.cs.brown.edu:<path/to/your/project/dir> <desired/destina
+tion/on/your/computer>
+\end_layout
+
+\begin_layout Enumerate
+Open up your project in QtCreator.
+ On the Configure Project page, click Okay.
+ Now go to Projects (in the sidebar).
+ Under the 
+\series bold
+Build & Run
+\series default
+ tab, click 
+\series bold
+Manage Kit
+\series default
+s.
+ On the right sidebar, click 
+\series bold
+Add
+\series default
+.
+ Give your new kit a recognizable name.
+ In the compiler dropdown, select 
+\series bold
+GCC
+\series default
+ for 64 bit.
+ Under Qt version, select 
+\series bold
+Qt clang 64bit
+\series default
+.
+ Click okay, then click 
+\series bold
+Add Kit
+\series default
+, and select the kit you just made.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Note: In order to download gcc, first download XCode and manually enable
+ gcc: https://www.cyberciti.biz/faq/howto-apple-mac-os-x-install-gcc-compiler/
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Clean and Rebuild your project.
+ Now you should be good to go! 
+\end_layout
+
+\begin_layout Section
+Windows
+\end_layout
+
+\begin_layout Enumerate
+Visit 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.qt.io/download"
+literal "false"
+
+\end_inset
+
+.
+ Click the 
+\begin_inset Quotes eld
+\end_inset
+
+Go to open source
+\begin_inset Quotes erd
+\end_inset
+
+.
+ On the page you are redirected to, click 
+\begin_inset Quotes eld
+\end_inset
+
+Download
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+You should now have the installer downloaded onto your machine.
+ Open up the installer and run it.
+\end_layout
+
+\begin_layout Enumerate
+You will get many different download options.
+ Note that not all of them work correctly.
+ The version you need is at least: 
+\series bold
+Qt 5.7.1 for Windows 32-bit (MinGW 5.3.0)
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+You can also try googling 
+\begin_inset Quotes eld
+\end_inset
+
+Qt creator 5.7.1.
+\begin_inset Quotes erd
+\end_inset
+
+ One of the first few results will take you to a pagee where you can download
+ 
+\series bold
+qt-opensource-windows-x86-mingw530-5.7.1.exe
+\series default
+.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://download.qt.io/archive/qt/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If you get the wrong compiler, then uninstall the Qt creator you downloaded
+ and just install the right one.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+To Uninstall: Go the the Qt creator folder wherever you downloaded it to
+ (the default is your C drive) and then the version you installed.
+ You’re looking for an application labeled the MaintenanceTool with the
+ green Qt icon.
+ Double click it and you will get a window with three options.
+ Choose “Remove all components” and go through the rest of the prompts.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Follow the directions in the installer.
+\end_layout
+
+\begin_layout Enumerate
+Copy your files from the department machine using WinSCP.
+ More info 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://cs.brown.edu/about/system/connecting/ssh/windows/"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Clean and Rebuild your project.
+ 
+\series bold
+Now you should be good to go!
+\end_layout
+
+\begin_layout Enumerate
+If it still doesn't work:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Check the .pro file.
+ There should be a line saying 
+\shape italic
+LIBS += -lopengl32
+\shape default
+.
+ If this is missing, add it in.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If your computer is over 4 years old: you may have issues with using OpenGL
+ version 400 in your shaders.
+ If you are getting compilation errors in your unchanged shaders, then try
+ printing your OpenGL version (look 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "https://www.opengl.org/wiki/Get_Context_Info"
+literal "false"
+
+\end_inset
+
+ for help with this).
+ If your version is < 4.0 and you have the latest graphics drivers installed
+ on your computer, you may not be able to run the projects and labs for
+ this course.
+ As a last resort, you can try changing the line at the top of each shader
+ file (the .frag and .vert files) from #version 400 to #version 330.
+\end_layout
+
+\begin_layout Enumerate
+If the complier returns an error saying it does not recognize the 
+\begin_inset Quotes eld
+\end_inset
+
+-no-pie
+\begin_inset Quotes erd
+\end_inset
+
+ tag: Go to the .pro file in your project and comment out or delete: QMAKE_LFLAGS
+ += -no-pie
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Note/Disclaimer: Qt on Windows is quite finicky.
+ If you do develop locally, make sure to start early in case you run into
+ Qt problems.
+ It is perfectly normal/doable to develop on department machines where Qt
+ proveably works.
+ While working locally is convenient, loosing time on assignments to Qt
+ setup issues is not.
+\end_layout
+
+\end_body
+\end_document

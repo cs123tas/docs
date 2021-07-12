@@ -1,0 +1,209 @@
+\documentclass{scrartcl}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{hyperref}
+\lstset{language=C}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Good Shader Practices}
+\subtitle{A CSCI 1230 Guide}
+\author{}
+\date{}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+This guide is focused on explaining a few good mechanical practices for making your GPU happy. This includes efficient data specification and code optimizations. This guide does \text{not} explain the costs and benefits of higher level designs, such as forward vs deferred shading.
+
+\section{ Geometry }
+
+\subsection{ Indexed Buffers }
+
+For all but the simplest of geometry, vertices are used more than once in a given mesh. A single vertex is in turn made of a position vector, as well as possibly a normal vector, multiple texture coordinates, and so forth. It is therefore very expensive memory-wise to keep redundant vertices in your arrays. Indexing arrays is a solution to this problem: List every vertex once in one array, and then specify another array whose entries are indices into the first array. The entries in this index array specify which vertices are to be used to form each primitive.\\
+
+An index array may look like $\{ (0, 1, 2 ), (0, 2, 3), (2, 3, 4) \ldots \}$. Vertices 0, 1, and 2 will form the first triangle, vertices 0, 2, and 3 will form the second, and so forth.
+
+\subsection{ Interleaved Buffers }
+
+The major unit of computation for the vertex shader is vertices. Not positions, or normals, or texture coordinates - each excecution of the shader requires that all information regarding a single \textit{vertex} be retrieved from memory. For this reason, it is handy to organize our memory so that all of the vertex data is in one location in memory. Consider two examples:
+
+\begin{enumerate}
+
+\item You specify three VBOs - one for position data, one for normal data, and one for texture coordinate data. Visually, the buffers look like:
+
+[ PPP, PPP, PPP \ldots ] , [ NNN, NNN, NNN \ldots ] , [ TT, TT, TT  \ldots ].
+
+This is not spatially optimal. The GPU must read from three different locations in memory in order to gather all the knowledge for a vertex.
+
+\item You specify one VBO - the position, normal, and texture data for each vertex are listed as a single group. Visually, the buffer looks like:
+
+[ PPPNNNTT, PPPNNNTT, PPPNNNTT, \ldots ]
+
+This is far better. Now when the position data is read from memory, the normal and texture memory is as close as possible. This is a good cache optimization scheme.
+
+\end{enumerate}
+
+The second example is called vertex interleaving. For N vertex attributes, you've now saved yourself N-1 memory lookups. Hurray!
+
+
+\subsection{ Indexed Interleaved Buffers }
+
+In care you're wondering, you can indeed (and should where possible) combine indexing and interleaving. You will reap the benefits of your memory thrift as you afford more geometry and effects drawn than before.
+
+\subsection{ Degenerate Triangle Strips }
+
+\textbf{Note:} This is pretty clever.\\
+
+The most straightforward way to draw triangles is with \texttt{GL\_TRIANGLES} --- every three elements constitutes a distinct triangle, wholly independent of the last. However, \\ \texttt{GL\_TRIANGLE\_STRIP} is a much faster way of accomplishing the same task. Organizing your geometry buffer such that you draw in strips saves you space in your index buffer \textit{and} improves memory access speed, as two of the vertices in the previous triangle are always present in the next.\\
+
+But wait,  drawing with strips means you'll have lots of draw calls - one for each strip. That will slow everything down, right? And just appending each strip in the same call will cause them all to be connected by incorrect triangle artifacts. What to do?\\
+
+Degenerate triangles to the rescue! You can pack everything into a single draw call by placing ``caps'' at the ends of your triangle strips. This is done by specifying the last vertex of the first strip and the first vertex of the second strip twice. Visually, your index buffer (for a width of 50) should look like:\\
+
+[ \ldots 48, 98, 49, 99, \textbf{99}, \textbf{50}, 50, 100, 51, 101, \ldots ]\\
+
+Instead of having incorrectly shoved your strips together, you've specified four triangles of zero area between them as a safe connection. Because they have zero area, they are never rendered. As a further benefit, the winding order of the triangles remains the same, so you don't have to worry about reversing every other strip. Basically, they do what you want them to do.
+
+\subsection{ Material groups }
+
+In large enough scenes, there will be many meshes and many materials with which to render them. In order to save on GPU calls (such as switching uniforms or even shaders), it is helpful to group your geometry by material. Set your shader and uniforms, draw everything with those settings, and move onto the next group. This will require pre-sorting your objects somehow.\\
+
+Depending on the scope of your project, you may never notice the benefits of material grouping, especially in this class. You should investigate other more impactful optimizations before you spend time on material grouping, and make sure that implementing material groups doesn't cost more than it saves!
+
+\section{ GLSL Optimizations }
+
+\subsection{ Default Optimizations }
+
+The GLSL compiler optimizes shaders nearly to a fault. While optimizations are vendor-specific, there are a number of assorted optimizations that will commonly be done for you. Knowing them will let you more meaningfully concentrate your efforts and can also explain changes in performance if you switch hardware.
+
+\begin{itemize}
+
+\item \textbf{ Unnecessary variables and functions are removed. } If the flow of the shader's logic is such that a certain variable is never used or a function is never reached, it is completely removed from the shader. This can prove troubling when trying to debug a shader, as you may get OpenGL-side errors about missing variables (e.g. when you try to set them from C++).
+
+\quad One hack to prevent this is to multiply the uniform or function's return value by an epsilon value (e.g. 0.00001) and add it value that's always used (perhaps at the end of your main). This way your shader will still "use" the values, thus they will not get optimized out, and your final output will not be meaningfully altered.
+
+\item \textbf{ Uniform computations are \textit{sometimes} precomputed when possible.} If you multiply uniform A by uniform B in an equation, the compiler might recognize that this too is a uniform (as a function of strictly uniforms is itself \textit{uniform}), so will not execute the operation for every piece of input data ( e.g. vertex or fragment). However, you should not rely on this and should precompute such expressions beforehand.
+
+\end{itemize}
+
+\subsection{ Fast Language Features }
+
+GLSL is built specifically for GPUs, which are in turn built specifically for doing common graphics operations as fast as possible. It is helpful to know about these features when coding your shaders. You will not only be spared from reinventing the wheel, but also know how to accomplish your tasks more efficiently. Some operations on normal CPUs have certain performance prices, while their prices on GPUs are much lower.
+
+\subsubsection{ Swizzle }
+
+GLSL allows you to address the components of vectors in an arbitrary order. Consider the vector vec4 foo. The components of foo can be "swizzled" like so:
+
+\begin{lstlisting}
+foo.xyz = foo.wzy
+\end{lstlisting}
+
+
+This switches the y and z components of the vector and replaced x with w. You can switch any components around, and you don't have to use all the components at once (notice how foo is a vec4 but we only assigned 3 components). You can also repeat components (e.g. foo.xy = foo.zz). Swizzling is a good practice for making your shader faster and more readable over constructing vectors on a per-element basis (such as \texttt{vec3 foo = vec3(bar.y, bar.x, bar.z)}).
+
+\subsubsection{ MAD Operations }
+
+MAD - Multiply, then Add. MAD operations are very low cost, so writing your arithmetic as\\
+
+\begin{lstlisting}
+float a =  0.5 * b + 0.5 ;
+\end{lstlisting}
+
+rather than \\
+\begin{lstlisting}
+float a = 0.5 * ( 1.0 + b );
+\end{lstlisting}
+
+will indeed be faster. While the compiler \textit{might} be able to recognize this toy example despite the ordering (especially considering the constants), structuring your algebra to take advantage of this can save you time. For example, you may find that factoring/pre-multiplying/grouping your terms in such a way will leave you with the same algebraic result but with fewer instructions.
+
+\subsubsection{ \href{https://www.opengl.org/sdk/docs/man/html/step.xhtml}{\texttt{Step} function}}
+
+The GLSL \texttt{step} function checks whether its second argument is less than its first, returning 0 if true and 1 otherwise. It works on a component-wise basis. That is to say, if you compare two \texttt{vec4}s, the result will be a \texttt{vec4} whose components are the result of the component-by-component comparison of the arguments.\\
+
+The \texttt{step} function is useful because you can use two at once to effectively create a ternary operator. Branching on GPUs is not recommended, so if you can turn small branches into \texttt{step} functions, do it. See section 3.3 for more.
+
+\subsubsection{ \href{https://www.opengl.org/sdk/docs/man/html/mix.xhtml}{\texttt{Mix} function}}
+
+GLSL's mix function is a linear interpolation function, or lerp for short. GPUs are good at lerping, so avail yourself of the GLSL mix function wherever you can.\\
+
+\texttt{mix( a, b, t)} lerps between a and b based on the value in t. The last argument can be a float to lerp between all components of the vector uniformly, or it can be the same type as \texttt{a} and \texttt{b} to lerp on a component-wise basis.
+
+\subsubsection{ \href{https://www.opengl.org/sdk/docs/man/html/smoothstep.xhtml}{\texttt{Smoothstep} function}}
+
+\texttt{Smoothstep} does a \href{http://en.wikipedia.org/wiki/Hermite_interpolation}{Hermite interpolation} between two endpoints based on the value of the third element. The name is misleading - \texttt{smoothstep} looks like a curved version of \texttt{mix} rather than a binary function like \texttt{step}. You can use smoothstep if you want a slightly fancier version of \texttt{mix}.
+
+\subsection{Avoiding Branches}
+
+GPUs are great at a lot of things, but sadly they are not so great at evaluating conditional branches. Branches are a great way to slow down GPU code. However, there are a few techniques for avoiding them.
+
+\begin{itemize}
+
+\item \textbf{Don't have branches.} Lame suggestion, right? Perhaps not. If your shader program is accounting for multiple possible outcomes and checking for various settings, you will most likely increase your performance by using separate shaders for separate pieces of functionality. For example, rather than checking for valid inputs in GLSL, only pass valid inputs from the C++ side. The only reason using multiple shaders wouldn't help is if each shader draws so little that the cost of constantly switching through them overtakes the cost of the conditional branch.
+
+\item \textbf{Use the \texttt{step} function.} While simply removing branching may work for complete pieces of functionality, some pieces of functionality may themselves \textit{need} conditionals in order to be evaluated properly - just consider some long logical mathematical formula that calculates later results differently based on outcomes of earlier results. The \texttt{step} function is a branchless conditional - it returns either 0 or 1 depending on the arguments you give it. \\
+
+Consider the following logic:\\
+
+\begin{lstlisting}
+if( conditional==true )
+{
+	answer += foo;
+}
+else
+{
+	answer += bar;
+}
+\end{lstlisting}
+
+You can stick that conditoinal into a \texttt{step} function to get the following:\\
+
+\begin{lstlisting}
+float cond = step( conditional );
+answer += cond*foo + (1.0-cond)*bar;
+\end{lstlisting}
+
+Regardless of what the value of the conditional is, you should be able to turn it into an inequality fairly easily.
+
+\end{itemize}
+
+
+\newpage
+
+\section{ Additional Resources }
+
+This list of suggestions is far from exhaustive. The following is a short list 
+
+\subsection{ \href{https://www.opengl.org/wiki/Main_Page}{OpenGL Wiki} }
+
+\quad \href{https://www.opengl.org/wiki/Main_Page}{The Wiki} can be far more helpful when learning about how to use OpenGL functions, and why things are set up the way they are. You'll often find practical examples and explanations of the arguments to functions, critical clarification often missing from the docs.
+
+\subsection{ \href{http://www.amazon.com/OpenGL-Shading-Language-Cookbook-Edition/dp/1782167021/}{OpenGL 4.0 Shading Language Cookbook}}
+
+\quad Now on its second edition, the \href{http://www.amazon.com/OpenGL-Shading-Language-Cookbook-Edition/dp/1782167021/}{Cookbook} is a fantastic resource for learning how to do shaders. It takes you through all of GLSL's language features while also explaining how to implement various effects such as bloom and shadow mapping. Every argument of every function is explained, as is each step of each algorithm, so you'll feel confident in writing shaders by the time you've read it.
+
+\subsection{ \href{https://www.shadertoy.com/}{Shadertoy} }
+
+\quad \href{https://www.shadertoy.com/}{Shadertoy} is an incredible website showcasing thousands of shader demos. What's more, you can see all of the source code right next to the shader. You can also change it, recompile it, and see what happens. This is best place to learn advanced fragment shading techniques such as fractal generation, noise generation, and raymarching. You can also see how people use the functions mentioned in section \texttt{3.2} - pictures are worth a thousand words. It's run by Pixar's own I\~nigo Quelez, so you may learn a thing or two.
+
+\subsection{ Further Reading}
+
+\begin{itemize}
+
+\item GPU Pro \href{http://www.amazon.com/GPU-Pro-Advanced-Rendering-Techniques/dp/1568814720/}{1}, \href{http://www.amazon.com/GPU-Pro-2-Wolfgang-Engel/dp/1568817185/}{2}, \href{http://www.amazon.com/GPU-PRO-Advanced-Rendering-Techniques/dp/1439887829/}{3}, \href{http://www.amazon.com/GPU-Pro-Advanced-Rendering-Techniques/dp/1466567430/}{4}, and \href{http://www.amazon.com/GPU-Pro-Advanced-Rendering-Techniques/dp/1482208636/}{5}
+
+\item GPU Gems \href{http://www.amazon.com/GPU-Gems-Programming-Techniques-Real-Time/dp/0321228324/}{1}, \href{http://www.amazon.com/GPU-Gems-Programming-High-Performance-General-Purpose/dp/0321335597/}{2}, and \href{http://www.amazon.com/GPU-Gems-3-Hubert-Nguyen/dp/0321515269/}{3}
+
+\item \href{http://www.amazon.com/Physically-Based-Rendering-Second-Edition/dp/0123750792/}{Physically Based Rendering, Second Edition: From Theory to Implementation}
+
+\end{itemize}
+
+\end{document}
+

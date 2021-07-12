@@ -1,0 +1,70 @@
+﻿Vertex:
+#version 330 core
+
+
+in vec3 position;
+in vec3 normal;
+in vec2 texCoord;
+
+
+uniform mat4 mvp;
+uniform mat4 model;
+uniform mat4 view;
+uniform vec3 ambient;
+uniform float specExp;
+
+
+uniform struct {
+        vec3 dir;
+        vec3 color;
+} light;
+
+
+out vec3 color;
+out vec2 texC;
+
+
+void main() {
+        gl_Position = mvp * vec4(position, 1);
+        
+        vec3 normalWorld = inverse(transpose(mat3(model))) * normal;
+        normalWorld = normalize(normalWorld);
+        
+        float nDotL = dot(normalWorld, -normalize(light.dir));
+        nDotL = max(0, nDotL);
+        
+        vec4 positionWorld = model * vec4(position, 1);
+        vec4 cameraEyeWorld = inverse(view) * vec4(0,0,0,1);
+        vec4 vertexToEye = cameraEyeWorld - positionWorld;
+        vec3 lightReflected = reflect(light.dir, normalWorld);
+        vertexToEye = normalize(vertexToEye);
+        vec4 lightReflected4 = normalize(vec4(lightReflected, 0));
+        
+        float spec = pow(max(0, dot(vertexToEye, lightReflected4)), specExp);
+        
+        color = ambient + light.color * nDotL + light.color * spec;
+        
+        texC = texCoord;
+}
+
+
+
+
+Frag:
+#version 330 core
+
+
+out vec4 fragColor;
+
+
+uniform sampler2D tex;
+
+
+in vec3 color;
+in vec2 texC;
+
+
+void main() {
+        vec4 textureColor = texture(tex, texC);
+        fragColor = vec4(color * textureColor.rgb, 1);
+}
