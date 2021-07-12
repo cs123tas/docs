@@ -95,3 +95,24 @@ Every student has five late passes that can each be used to waive a day that a p
 Late days are expected to cover clustering of due dates and job interviews. For sickness and other issues of wellbeing, please obtain a note from health services or a dean and communicate with Daniel; the TAs will not be involved in handling these.
 
 Lastly, all labs (11 out of 12) and projects must be handed in with at least minimal functionality by the end of the semester in order to receive your course grade (these handins are **not** exceptions to late penalties). As projects build upon each other, it is important to start early and quickly recover from late handins.
+
+
+## Half-Credit Missive ##
+
+Here, we provide more detailed information to students who are attempting to earn an additional half-credit while taking CSCI 1230. CSCI 1234 is **not** a separate course and cannot be taken alone. If you are a graduate student and wish to earn 2000 level grad credit, you will also need to follow these guidelines.
+
+### Registration ###
+
+You must register for CSCI 1230 **and** CSCI 1234 to earn the half-credit or grad credit (graduate students may sign up with the HTA as to not incurr additional fees). If you are uncertain about attempting this, we strongly encourage you to register for both anyway. You can always drop the lab course later in the semester if you decide the workload becomes untenable. If you have any questions, feel free to email cs1230tas@lists.brown.edu.
+
+### Assignment Enhancements ###
+
+For each of the 6 projects, you will be expected to complete additional features in order to pass the lab course. We've worked hard to ensure that these enhancements are not just more work, but that they also will increase your understanding of graphics programming. This does not mean they are easy and/or quick to do.  In a couple of cases you will be able to use your creativity to implement something of your own choosing. Do not assume what you implement will count towards the half credit requirement! Check with a TA during hours or email them before handing in. As a group, they have all implemented the enhancements and should be able to help answer any questions. 
+
+### Time Management ###
+
+We tell everyone this, but for meeting these requirements, you will really need to start each project as soon as it is released. We aren't joking or exagerating in the slightest. If you find the assignments easy, we hope you will apply to be a CSCI 1230 TA next year!
+
+### Further Questions? ###
+
+As always please, email the TAs if you have any questions on half credit requirements.
