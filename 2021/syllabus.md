@@ -96,6 +96,26 @@ Late days are expected to cover clustering of due dates and job interviews. For 
 
 Lastly, all labs (11 out of 12) and projects must be handed in with at least minimal functionality by the end of the semester in order to receive your course grade (these handins are **not** exceptions to late penalties). As projects build upon each other, it is important to start early and quickly recover from late handins.
 
+### Diversity and Inclusion ###
+
+Our intent is that this course provide a welcoming environment for all students who satisfy the prerequisites. Our TAs have undergone training in diversity and inclusion, and all members of the CS community, including faculty and staff, are expected to treat one another in a professional manner. If you feel you have not been treated in a professional manner by any of the course staff, please contact either the instructor, [Ugur Cetintemel](mailto:ugur@cs.brown.edu) (Dept. Chair), [Tom Doeppner](mailto:twd@cs.brown.edu) (Vice Chair) or [Laura Dobler](mailto:laura_dobler@brown.edu) (diversity & inclusion staff member). We will take all complaints about unprofessional behavior seriously. Prof. Krishnamurthi has [good notes](http://cs.brown.edu/courses/cs019/2016/professionalism.html) on this area. To access student support services and resources, and to learn more about diversity and inclusion in CS, please visit [this webpage](http://cs.brown.edu/about/diversity/resources/).
+
+Brown welcomes students from all around the country and the world, and their unique perspectives enrich our learning community. To empower students whose first language is not English, an array of support is available on campus, including language and culture workshops and individual appointments. For more information, contact the English Language Learning Specialists at [ellwriting@brown.edu](ellwriting@brown.edu).
+
+### Accommodations ###
+
+Brown University is committed to full inclusion of all students. Please inform Daniel if you have a disability or other condition that might require accommodations or modification of any of these course procedures. You may email Daniel, come to office hours, or speak with him after class, and your confidentiality is respected. We will do whatever we can to support accommodations recommended by SEAS. For more information contact Student and Employee Accessibility Services ([SEAS](https://www.brown.edu/campus-life/support/accessibility-services/)) at 401-863-9588 or SEAS@brown.edu. Students in need of short-term academic advice or support can contact one of the deans in the Dean of the College office.
+
+### Mental Health ###
+
+Being a student can be very stressful. If you feel you are under too much pressure or there are psychological issues that are keeping you from performing well at Brown, we encourage you to contact Brown’s Counseling and Psychological Services [CAPS](https://www.brown.edu/campus-life/support/counseling-and-psychological-services/). They provide confidential counseling and can provide notes supporting extensions on assignments for health reasons.
+
+### Incomplete Policy ###
+
+We expect everyone to complete the course on time. However, we certainly understand that there may be factors beyond your control, such as health problems and family crises, that prevent you from finishing the course on time. If you feel you cannot complete the course on time, please discuss with the instructor the possibility of being given a grade of Incomplete for the course and setting a schedule for completing the course in the upcoming year.
+
+*Thanks to Tom Doeppner and Laura Dobler for the text on accommodation, mental health, and incomplete policy.*
+
 
 ## Half-Credit Missive ##
 
