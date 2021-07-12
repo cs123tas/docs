@@ -167,39 +167,41 @@ Students are able to take the course without knowing C++. However, these student
 
 ### Assignments ###
 
-#### Brush ####
+#### Projects ####
+
+##### Brush #####
 The first assignment is designed to get your feet wet in the world of graphics programming. In this assignment, you will be implementing various different airbrushes, similar to ones found in many commercial painting programs such as Adobe Photoshop. This assignment should give you a good introduction to the kind of C++ programming you will be doing in this course, as well as gently familiarize you with Qt user interfaces.
 
-#### Shapes ####
+##### Shapes #####
 This assignment covers one of the earliest steps in the 3D rendering pipeline: object tessellation. For this assignment you will be constructing simple 3D objects (e.g., spheres and cylinders) out of triangles and then displaying them on the screen. All you need to do for this assignment is compute the necessary triangles; our stencil code handles the task of drawing them for you.
 
-#### Intersect ###
+##### Intersect #####
 In this assignment, you will begin to explore an algorithm for drawing (or 'rendering') the shapes you tessellated in the Shapes assignment. Specifically, you will compute intersections between these objects and rays (of light). You will then use this code to create somewhat photorealistic images of scenes.
 
-#### Ray ####
+##### Ray #####
 Ray tracing is a method for rendering realistic pictures of geometric objects. It uses available information about lighting and optical effects like light reflection and refraction. It may sound complicated, but it is a relatively simple technique, and the cool pictures you get are well worth it! You will essentially be taking your code from Intersect, adding in the ability to illuminate the objects, and applying textures from 2D images.
 
-#### Sceneview ###
+##### Sceneview #####
 In this assignment, you will dive into real-time graphics programming with OpenGL and create an interactive viewer for the 3D scenes you rendered in the Intersect and Ray assignments. This assignment builds upon the code from Shapes, Intersect, Ray, and from the Camtrans lab.
 
-#### Filter #####
+##### Filter #####
 Ever wonder how programs like Photoshop generate all those cool special effects? This assignment represents a subset of the functionality that photo editing programs have. It is designed to teach you the basics of image processing and anti-aliasing. You will implement various image manipulation operations like edge detection, blurring, and image scaling.
 
-#### Final Project ####
+##### Final Project #####
 Lastly, you will be creating a final project. The final project can be anything you want that includes one or more of the concepts we covered during the semester, plus a technique you research on your own. Examples include a short game, a cool OpenGL shader program, a demo scene, an implementation of an advanced rendering system, or some combination of the above! Note you're not restricted to these ideas alone. We’ll cover the final project in greater detail in late November.
 
 #### Labs ####
 In addition to homework assignments, a series of labs will provide hands-on experience with various graphics programming topics and tools. The concepts you learn in lab will prove quite useful for implementing your final project (see section above).
 
-### Algos ###
+#### Algos ####
 
-#### Algorithm worksheets ####
+##### Algorithm worksheets #####
 
 Each programming assignment will be accompanied by a written algorithm (“algo”) assignment to get you started thinking about how to approach the assignment mathematically and algorithmically. These hand-ins will contribute 10% of the final grade. There is also an algorithm assignment for the Camtrans lab. See the assignment handouts for more details and exceptions. Algorithm worksheets are returned the same day as the deadline so you can begin coding with confidence right away!
 
 Algorithm answers should be clear and succinct. Don't just start writing. Think first, and then write up the clearest answer you can. If we ask you to describe a section of the project’s algorithm, you should probably go with a description, or pseudo code, rather than actual C++. That said, some incredibly simple parts, such as loops, may be easier to read in actual code.
 
-#### Tips for Algorithm worksheets ####
+##### Tips for Algorithm worksheets #####
 
 When you think you’re done with the algorithm worksheet, begin coding immediately while it’s still fresh in your mind. Don’t wait for the solutions to begin coding. The solutions to the algorithm worksheets are designed to help you to debug your program, not to help you write the code for the first time.
 
