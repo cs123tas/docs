@@ -240,3 +240,81 @@ Sometimes you may feel that you have been graded unfairly. If you ever feel this
 If you decide to challenge a grade, you must do so within two weeks of its receipt. In the past, students have tried to get points back on all of their assignments in the last week of classes. Our first priority is fairness, both to us and to you! You may ask questions about your grades at any time. You can’t change the contents of your hand-in after your grade is returned. If you discover that you handed in the wrong work after you get your grade back, or if you fix your program after getting its grade back, we are unable to take that “external” content into account for grading purposes.
 
 
+### Support Code Tips ###
+
+#### Vectors and Matrices ####
+
+The support code uses a library called glm for vector and matrix operations. Glm contains vector types called glm::vec2, glm::vec3, and glm::vec4, as well as matrix types such as glm::mat4. Examples:
+```cpp
+glm::vec2 pos; // Default constructor initializes x and y to 0
+pos.x = 1;
+glm::value_ptr(pos)[1] = 3;
+std::cout << glm::to_string(pos) << std::endl; // Outputs [ 1 3 ]
+
+glm::vec3 v = glm::vec3(1, 2, 3);
+glm::vec3 n = glm::vec3(5, 2, 0);
+float dotProduct = glm::dot(v, n); // dotProduct == 9
+for (int i = 0; i < 3; ++i)
+   glm::value_ptr(n)[i] = 2 * i;
+glm::vec3 piecewiseProduct = v * n; // piecewiseProduct == [0, 4, 12]
+```
+
+#### Qt Creator ####
+
+Qt Creator has lots of shortcuts and tricks that can make your life a lot easier. Here are some of the most helpful shortcuts:
+* F2: Go to the definitions of the symbol under the cursor.
+* F4: Switches between the header and cpp file.
+* Ctrl+Shift+R: Rename and refactor the symbol under the cursor.
+* Ctrl+Shift+U: Find all usages of the symbol under the cursor.
+* Ctrl+L: Go to a specific line number.
+* Ctrl+K: Godmode - Search for **anything**. If you learn one new shortcut, this should be it. Examples:
+   * Type Ctrl+K followed by “m paintGL” to see a list of all methods named paintGL. Hit Enter to go to the implementation of the selected method.
+   * Type Ctrl+K followed by “c Canvas2D” to see a list of all classes named Canvas2D. Hit Enter to go to the Canvas2D class definition.
+   * Type Ctrl+K followed by “? QList” then hit Enter to view the Qt Help on the QList class.
+   * (For more information, hit Ctrl+K and read what each letter prefix does)
+
+#### Floating Point Calculations ####
+
+Keep in mind that floating point numbers have limited precision, so floating point calculations may lead to rounding errors. To compare two floating point numbers x and y for equality, use abs(x-y) < EPSILON. You can define an EPSILON that works well for your program (usually 1e-4 to 1e-8).
+
+#### Settings ####
+
+The support code defines a global object named settings to hold values entered through the GUI. This object is automatically updated when things are changed in the GUI, though the GUI is not updated when the settings object is changed programmatically.
+
+
+### Getting Your Questions Answered ###
+
+For most course-related questions, you should ask a TA during TA hours.
+
+You may not ask TAs course-related questions when they are not on hours. All TAs are prohibited by department and university policy from answering course-related questions when not on official TA hours. TAs may answer general administrative questions when not on TA hours.
+
+Thank you for helping us comply with departmental and university regulations (which reflect applicable labor laws). If you have any questions about this policy, please contact mta@cs.brown.edu.
+
+#### TA Hours ####
+
+The TA hour listing is available from the CS1230 home page. We will make every effort to maintain these hours without exception. On rare occasion, we might need to cancel or reschedule a TA hour session. When TA hours are rescheduled or exceptions are made, these will be announced on the CS1230 web page.
+
+TA hours are often very busy, and many times there will be a waiting list on the board. You may sign up on the waiting list when TA hours are in progress, but not before TA hours start. The TA will erase the waiting list at the start of TA hours each day. If the waiting list is very long and the end of TA hours is approaching, the TA may close the waiting list so that all people on the waiting list can be helped before TA hours are over. You can help alleviate this problem of crowded hours by simply starting early. While there is no bonus for doing this, starting early often means finishing in less time, since you won't have to wait as long to get your questions answered.
+
+Before asking a TA for help, please check the lecture slides to see if your question is answered there. If you still do not understand something, you are welcome to ask questions and clarifications about the lecture slides.
+
+Please note that taking any source code (or a TA’s modifications to your source code) away from TA hours is a violation of the CS1230 collaboration policy. The TAs are not here to debug your code, but rather to clarify your understanding of the concepts taught in class and used in the assignments.
+
+#### Sending mail to the TAs ####
+
+If there is a problem with an assignment that affects the entire class (such as a bug in the support code), you may e-mail the TAs at cs1230tas@lists.brown.edu. TAs will respond to course-related e-mail during their office hours. For administrative questions or if there is a problem with a TA, you can e-mail the head TA at cs1230headtas@lists.brown.edu.
+
+Questions related to coding the projects or concepts explained in class should be asked at TA hours and TA help sessions. We are not able to respond to these types of questions via e-mail.
+
+#### Course webpage ####
+
+The CS1230 web page, which you are responsible for checking and reading daily, is located at https://csci1230.graphics. It is a useful source of online course material. A wide variety of things like lectures, handouts, the syllabus, TA hours, and software guides can be found on this site.
+
+You are responsible for checking the web site frequently, as we will be updating it with important information as the semester progresses. Most updates to the website will be accompanied by an announcement to the course mailing list and Piazza.
+
+### Finally, welcome! ###
+
+As we mentioned before, CSCI 1230 is a continually evolving course. As such, we are bound to have our own 'bugs' hiding in the corners. Please read everything we hand out very carefully. If there is something which you do not understand, or which is not stated very clearly, please let us know so we can fix it right away.
+This applies to the material discussed in lecture as well. Give us constructive criticism on all aspects of the course. The more feedback there is, the better we can make this course for you as the semester progresses, and the better we can make it for the next twenty-five years of Brown computer graphics students!
+
+We just went through a lot of heavy talk. Please take all of it seriously, but also remember that we're not trying to scare you. We are here to help you! We're just clearing preliminaries and establishing the ground rules. With that done, we hope you'll have as much fun as we did in CSCI 1230.
