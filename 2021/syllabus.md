@@ -6,6 +6,8 @@ Welcome to CSCI 1230, the longest-running computer graphics course in the known 
 
 Links to different subsections go here
 
+---
+
 ## Course Missive
 
 ### Course Staff & Essential Info
@@ -116,6 +118,7 @@ We expect everyone to complete the course on time. However, we certainly underst
 
 *Thanks to Tom Doeppner and Laura Dobler for the text on accommodation, mental health, and incomplete policy.*
 
+---
 
 ## Half-Credit Missive ##
 
@@ -137,6 +140,7 @@ We tell everyone this, but for meeting these requirements, you will really need 
 
 As always please, email the TAs if you have any questions on half credit requirements.
 
+---
 
 ## Student Guide ##
 
