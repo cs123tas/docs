@@ -4,7 +4,29 @@ Welcome to CSCI 1230, the longest-running computer graphics course in the known 
 
 ## Table of Contents
 
-Links to different subsections go here
+* [Course Missive](#course-missive): The essential information about the course, its content, workload, and policies.
+  * [Course Staff & Essential Info](#course-staff--essential-info)
+  * [Prerequisites](#prerequisites)
+  * [Learning Goals](#learning-goals)
+  * [Work Expectations](#work-expectations)
+  * [Grading](#grading)
+  * [Materials](#materials)
+  * [Collaboration Policy](#collaboration-policy)
+  * [Late Policy](#late-policy)
+  * [Diversity and Inclusion](#diversity-and-inclusion)
+  * [Accommodations](#accommodations)
+  * [Mental Health](#mental-health)
+  * [Incomplete Policy](#incomplete-policy)
+* [Half-Credit Missive](#half-credit-missive): Information for those interested in taking CSCI 1234 for an additional half credit.
+* [Student Guide](#student-guide): More in-depth details about course contents, policies, computing infrastructure, and advice.
+  * [Lectures](#lectures)
+  * [Help Sessions](#help-sessions)
+  * [Programming](#programming)
+  * [Assignments](#assignments)
+  * [Support Code Tips](#support-code-tips)
+  * [Grading](#grading)
+  * [Getting Your Questions Answered](#getting-your-questions-answered)
+  * [Welcome!](#finally-welcome)
 
 ---
 
@@ -84,10 +106,6 @@ with OpenGL: https://csci1230.graphics/docs.shtml
 ### Collaboration Policy
 
 CSCI 1230 has a strictly enforced [collaboration policy](https://github.com/cs123tas/docs/blob/master/2021/2021%20Collaboration%20Policy.pdf) in line with [Brown's Academic Code](https://www.brown.edu/academics/college/degree/sites/brown.edu.academics.college.degree/files/uploads/Academic-Code.pdf) which emphasizes that all written work must be the student's own except for certain limited forms of collaboration that are explicitly permitted. Our collaboration policy in particular prohibits collaboration on the design and implementation of programs.
-
-### Half-Credit Course
-
-Students can also register for CSCI 1234 and complete specific additional assignments for each project to earn an extra half-credit. This course can be used to get grad credit, and it can also count as a capstone course. See the [Half-Credit Missive](#half-credit-missive) section of this document for more information.
 
 ### Late Policy
 A late algo or lab checkoff will receive **no credit**. Each day a project is turned in late will be penalized 10% of the possible total points. (If you are 25 hours late in handing in that’s a 20% even though you hand in during the first hour of that ‘extra day’).
@@ -245,24 +263,6 @@ While we don’t expect you to go overboard with optimization, we do expect your
 
 This set of assignments probably looks like a burden, but in fact, if approached sensibly (i.e., working steadily), you will have sufficient time for each and every one. The normal load is about 15 hours per week. By the time you take CSCI 1230 you are expected to be a competent programmer, with good design and debugging habits, and able to turn assignments in on time. Good time management will make this course much more enjoyable!
 
-### Grading
-
-Your final grade will be determined based on the programming assignments, algorithm hand-ins, and labs.
-
-You must complete all the assignments (including 11 out of 12 labs) to pass the course. As in all other computer science courses at Brown, you must hand in a working solution for all programming assignments in order to be eligible for a passing grade. Please note the adjective working: if you receive a grade of NC (no credit) on any of the assignments (before late penalties are deducted), you will be expected to revise your program and hand in an acceptable version if you want to pass the course. Also note that the reverse implication is not intended: handing in all assignments does not guarantee that you will pass the course; your accumulated points will determine that.
-
-Daniel doesn't use a curve, and would be delighted to hand out As to the entire class. Indeed, the majority of students traditionally have worked hard and gotten As. In borderline cases (e.g. 89-91), Daniel will take attendance and class participation into account, as well as your perceived effort and dedication. We all love to both give and receive good grades, but do understand that merely working hard doesn’t guarantee you an A. Your grade will reflect primarily upon the quality, correctness, and timeliness of your hand-ins.
-
-#### Extra Credit
-
-There is ample room for bells, whistles, and other credit-garnering efforts on the part of ambitious programmers. You are invited to get creative, as long as it does not make you late. Rewarding bells and whistles with extra credit is left to the discretion of the TAs, so we strongly encourage you to discuss your creative plans with a TA before you forge ahead to make sure that they are considered appropriate for credit. Also, keep in mind that bells and whistles should only be done after the standard assignment is fully working since they won't count in lieu of missing or buggy features! CSCI 1230 offers many opportunities for extra credit: if you finish a program a little early, seek appropriate inspiration and add something fancy.
-
-#### Regrade Requests
-
-Sometimes you may feel that you have been graded unfairly. If you ever feel this way, please talk to the TA who graded your assignment by visiting them during office hours. If you are not satisfied with the TA’s explanation, talk to the Head TA. If there is still a problem, Daniel is the final word in grading and will be happy to hear what you have to say.
-
-If you decide to challenge a grade, you must do so within two weeks of its receipt. In the past, students have tried to get points back on all of their assignments in the last week of classes. Our first priority is fairness, both to us and to you! You may ask questions about your grades at any time. You can’t change the contents of your hand-in after your grade is returned. If you discover that you handed in the wrong work after you get your grade back, or if you fix your program after getting its grade back, we are unable to take that “external” content into account for grading purposes.
-
 
 ### Support Code Tips
 
@@ -304,6 +304,25 @@ Keep in mind that floating point numbers have limited precision, so floating poi
 #### Settings
 
 The support code defines a global object named settings to hold values entered through the GUI. This object is automatically updated when things are changed in the GUI, though the GUI is not updated when the settings object is changed programmatically.
+
+
+### Grading
+
+Your final grade will be determined based on the programming assignments, algorithm hand-ins, and labs.
+
+You must complete all the assignments (including 11 out of 12 labs) to pass the course. As in all other computer science courses at Brown, you must hand in a working solution for all programming assignments in order to be eligible for a passing grade. Please note the adjective working: if you receive a grade of NC (no credit) on any of the assignments (before late penalties are deducted), you will be expected to revise your program and hand in an acceptable version if you want to pass the course. Also note that the reverse implication is not intended: handing in all assignments does not guarantee that you will pass the course; your accumulated points will determine that.
+
+Daniel doesn't use a curve, and would be delighted to hand out As to the entire class. Indeed, the majority of students traditionally have worked hard and gotten As. In borderline cases (e.g. 89-91), Daniel will take attendance and class participation into account, as well as your perceived effort and dedication. We all love to both give and receive good grades, but do understand that merely working hard doesn’t guarantee you an A. Your grade will reflect primarily upon the quality, correctness, and timeliness of your hand-ins.
+
+#### Extra Credit
+
+There is ample room for bells, whistles, and other credit-garnering efforts on the part of ambitious programmers. You are invited to get creative, as long as it does not make you late. Rewarding bells and whistles with extra credit is left to the discretion of the TAs, so we strongly encourage you to discuss your creative plans with a TA before you forge ahead to make sure that they are considered appropriate for credit. Also, keep in mind that bells and whistles should only be done after the standard assignment is fully working since they won't count in lieu of missing or buggy features! CSCI 1230 offers many opportunities for extra credit: if you finish a program a little early, seek appropriate inspiration and add something fancy.
+
+#### Regrade Requests
+
+Sometimes you may feel that you have been graded unfairly. If you ever feel this way, please talk to the TA who graded your assignment by visiting them during office hours. If you are not satisfied with the TA’s explanation, talk to the Head TA. If there is still a problem, Daniel is the final word in grading and will be happy to hear what you have to say.
+
+If you decide to challenge a grade, you must do so within two weeks of its receipt. In the past, students have tried to get points back on all of their assignments in the last week of classes. Our first priority is fairness, both to us and to you! You may ask questions about your grades at any time. You can’t change the contents of your hand-in after your grade is returned. If you discover that you handed in the wrong work after you get your grade back, or if you fix your program after getting its grade back, we are unable to take that “external” content into account for grading purposes.
 
 
 ### Getting Your Questions Answered
