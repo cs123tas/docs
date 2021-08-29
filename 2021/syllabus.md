@@ -39,7 +39,7 @@ Welcome to CSCI 1230, the longest-running computer graphics course in the known 
 * Lectures: Tues & Thurs 10:30am -- 11:50am, location TBD. Lectures will be recorded and promptly available online for students who have chosen remote asynchronous participation this semester.
 * Course website: https://csci1230.graphics
 * TA mailing list: cs1230tas@cs.brown.edu
-* Ed discussion board: (link forthcoming)
+* Ed discussion board: https://edstem.org/us/courses/12828
 * Labs/Help Sessions/Gear Ups: See the [course calendar](https://csci1230.graphics) for times and locations
 
 ### Prerequisites
