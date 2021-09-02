@@ -203,7 +203,7 @@ Basic engineering principles by which you should abide:
 * Don't do anything grossly inefficient. For example, factor repeated computation out of loops.
 * Always remember to free your memory.
 
-#### Don't know C++
+#### Don't know C++?
 
 Students are able to take the course without knowing C++. However, these students will need to spend extra time at the beginning of the course learning C++. The Intro to C++, Intermediate C++, and Advanced C++ help session slides are available on the CSCI 1230 documents page. These help sessions will be run by the TAs at the start of the semester. See section 3 above. TAs are also ready and willing to help students with C++ questions at office hours. Aside from the help sessions and TA help, the course has no special provisions for students learning C++. Programs will be due at the same time for everyone and will be graded on the same scale. 
 
